@@ -37,3 +37,44 @@ p code {
 .result-block-container .result-block {
   opacity: 1;
 }
+
+
+/* Student form  */
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+
+.personal-details-box,
+.dci-course-box {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  width: 70vw;
+  
+}
+
+.personal-details-title,
+.dci-course-title {
+  align-self: flex-start;
+  margin: 1rem 0;
+}
+
+.course-selection {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  font-size:1rem;
+  color:#495057;
+}
+
+
+/* media queries  */
