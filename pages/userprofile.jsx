@@ -5,7 +5,7 @@ import MentorForm from '../components/Profile/MentorForm';
 
 export default withPageAuthRequired(function SSRPage() {
   return (
-    <div>
+    <div className="profile-container">
       <StudentForm />
       <MentorForm />
     </div>
