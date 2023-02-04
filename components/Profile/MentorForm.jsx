@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 import { FormGroup, Input, Label, Form, Button } from 'reactstrap';
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 
 const MentorForm = () => {
   const [rSelected, setRSelected] = useState(false);
+
+  const languageOptions = [
+    { value: 'english', label: 'English', color: '#FF8B00' },
+    { value: 'german', label: 'German', color: '#FFC400' },
+    { value: 'other', label: 'Other', color: '#36B37E' }
+  ];
+  const animatedComponents = makeAnimated();
 
   return (
     <div className="mentor-box">
@@ -29,36 +38,18 @@ const MentorForm = () => {
               <div>
                 <FormGroup>
                   <Label for="textarea" hidden />
-                  <Input
-                    id="exampleText"
-                    name="text"
-                    type="textarea"
-                    placeholder="Please tell us about yourself.."
-                    required
-                  />
+                  <Input id="exampleText" name="text" type="textarea" placeholder="Tell us about yourself.." required />
                 </FormGroup>
               </div>
               <div>
                 <FormGroup>
-                  <Input className="course-selection" id="exampleSelect" name="select" type="select">
-                    <option selected="true" disabled="disabled">
-                      Graduated course
-                    </option>
-                    <hr />
-
-                    <option>
-                      {' '}
-                      <input type="checkbox" value="Web Development" />
-                    </option>
-                    <option>Python Backend Programming</option>
-                    <option>Java Backend Programming</option>
-                    <option>AWS re/Start Program</option>
-                    <option>Online Marketing</option>
-                    <option>Salesforce Consultant</option>
-                    <option>HR Consultant - People management</option>
-                    <option>Orientation Course</option>
-                    <option>Job Coaching</option>
-                  </Input>
+                  <Select
+                    closeMenuOnSelect={false}
+                    components={animatedComponents}
+                    isMulti
+                    options={languageOptions}
+                    placeholder="Select the languages you speak..."
+                  />
                 </FormGroup>
               </div>
               <div>
