@@ -43,15 +43,15 @@ const NavBar = () => {
                     </PageLink>
                   </NavItem>
                   <NavItem>
-                    <PageLink href="/ssr" className="nav-link" testId="navbar-ssr">
-                      Server-side rendered page
+                    <PageLink href="/connect" className="nav-link" testId="navbar-ssr">
+                      Connect
                     </PageLink>
                   </NavItem>
-                  <NavItem>
+                  {/* <NavItem>
                     <PageLink href="/external" className="nav-link" testId="navbar-external">
                       External API
                     </PageLink>
-                  </NavItem>
+                  </NavItem> */}
                 </>
               )}
             </Nav>
@@ -85,8 +85,13 @@ const NavBar = () => {
                       {user.name}
                     </DropdownItem>
                     <DropdownItem className="dropdown-profile" tag="span">
-                      <PageLink href="/profile" icon="user" testId="navbar-profile-desktop">
+                      <PageLink href="/userprofile" icon="user" testId="navbar-profile-desktop">
                         Profile
+                      </PageLink>
+                    </DropdownItem>
+                    <DropdownItem className="dropdown-profile" tag="span">
+                      <PageLink href="/connect" icon="user" testId="navbar-connect-desktop">
+                        Connect
                       </PageLink>
                     </DropdownItem>
                     <DropdownItem id="qsLogoutBtn">
