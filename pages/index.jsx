@@ -6,9 +6,10 @@ import Content from '../components/Content';
 export default function Index() {
   return (
     <>
-      <Hero />
+      {/* <Hero />
       <hr />
-      <Content />
+      <Content /> */}
+      <div>Future Home Page</div>
     </>
   );
 }

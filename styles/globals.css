@@ -4,8 +4,8 @@ body {
 }
 
 code {
-  white-space: pre-wrap; 
-  word-break: break-all; 
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 
 p code {
@@ -31,34 +31,34 @@ p code {
 
 .nav-item.dropdown .dropdown-item .navbar-item {
   width: 100%;
-  padding: .55rem 1.5rem;
+  padding: 0.55rem 1.5rem;
 }
 
 .result-block-container .result-block {
   opacity: 1;
 }
 
-
 /* Student form  */
 
-.profile-container {
+.profile-container,
+.connect-container,
+.search-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2em;
+  padding: 2em 0;
 }
 
 .personal-details-box,
 .dci-course-box,
 .mentor-box {
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   justify-content: space-between;
   gap: 1em;
   width: 70vw;
-  
 }
 
 .personal-details-title,
@@ -74,8 +74,8 @@ p code {
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   background-color: #fff;
-  font-size:1rem;
-  color:#495057;
+  font-size: 1rem;
+  color: #495057;
 }
 
 /* dropdown  */
@@ -112,6 +112,5 @@ p code {
 #checkboxes label:hover {
   background-color: #1e90ff;
 }
-
 
 /* media queries  */

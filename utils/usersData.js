@@ -1,0 +1,72 @@
+const usersData = [
+  {
+    firstName: 'Alina',
+    lastName: 'inCodeland',
+    picture: '',
+    email: 'email@test.com',
+    city: 'Berlin',
+    courseName: 'Web Development',
+    courseEndDate: '03/04/2023',
+    iLike: [],
+    description: "I'm a recent graduate student looking to help others on the same journey, by becoming their mentor.",
+    languages: ['German', 'English', 'Other'],
+    employment: 'Applying',
+    company: 'Amazon',
+    position: 'Developer',
+    topics: ['JavaScript', 'Back-End', 'Others'],
+    likes: ['id1', 'id2', 'id3']
+  },
+  {
+    firstName: 'John',
+    lastName: 'inNeverland',
+    picture: '',
+    email: 'john@test.com',
+    city: 'Frankfurt',
+    courseName: '',
+    courseEndDate: '',
+    iLike: [],
+    description: '',
+    languages: [],
+    employed: null,
+    company: '',
+    position: '',
+    topics: [],
+    likes: []
+  },
+  {
+    firstName: 'oli2',
+    lastName: 'oliveira',
+    picture: '',
+    email: 'oli2@test.com',
+    city: 'Hamburg',
+    courseName: '',
+    courseEndDate: '',
+    iLike: [],
+    description: '',
+    languages: [],
+    employed: null,
+    company: '',
+    position: '',
+    topics: [],
+    likes: []
+  },
+  {
+    firstName: 'Bruno',
+    lastName: 'inServerland',
+    picture: '',
+    email: 'bruno@test.com',
+    city: 'Berlin',
+    courseName: '',
+    courseEndDate: '',
+    iLike: [],
+    description: '',
+    languages: [],
+    employed: null,
+    company: '',
+    position: '',
+    topics: [],
+    likes: []
+  }
+];
+
+export default usersData;
