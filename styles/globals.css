@@ -50,7 +50,8 @@ p code {
 }
 
 .personal-details-box,
-.dci-course-box {
+.dci-course-box,
+.mentor-box {
   display: flex;
   /* flex-direction: column; */
   align-items: center;
@@ -61,7 +62,8 @@ p code {
 }
 
 .personal-details-title,
-.dci-course-title {
+.dci-course-title,
+.mentor-title {
   align-self: flex-start;
   margin: 1rem 0;
 }
@@ -74,6 +76,41 @@ p code {
   background-color: #fff;
   font-size:1rem;
   color:#495057;
+}
+
+/* dropdown  */
+.multiselect {
+  width: 200px;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  display: none;
+  border: 1px #dadada solid;
+}
+
+#checkboxes label {
+  display: block;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
 }
 
 
