@@ -23,12 +23,17 @@ const StudentForm = () => {
     setChanges(true);
   };
 
+  const submitForm = e => {
+    console.log('submiting new values StudentForm e.target.value --> ', e.target.value);
+    // update database with new updated values
+  };
+
   return (
     <>
       <div className="profile-container">
         <div className="personal-details-box">
           <h2 className="personal-details-title">Personal details</h2>
-          <Form>
+          <Form className="form" onSubmit={e => submitForm(e)}>
             <div>
               <div>
                 <img alt="user-image" src={studentData.picture} />
@@ -41,8 +46,8 @@ const StudentForm = () => {
                     name="firstName"
                     placeholder="First name"
                     type="text"
-                    value={studentData.firstName || ''}
-                    onInput={handleUserChange}
+                    defaultValue={studentData.firstName || ''}
+                    onInput={e => handleUserChange(e)}
                   />
                 </FormGroup>
               </div>
@@ -54,8 +59,8 @@ const StudentForm = () => {
                     name="lastName"
                     placeholder="Last name"
                     type="text"
-                    value={studentData.lastName || ''}
-                    onInput={handleUserChange}
+                    defaultValue={studentData.lastName || ''}
+                    onInput={e => handleUserChange(e)}
                   />
                 </FormGroup>
               </div>
@@ -67,8 +72,8 @@ const StudentForm = () => {
                     name="email"
                     placeholder="Email"
                     type="email"
-                    value={studentData.email}
-                    onInput={handleUserChange}
+                    defaultValue={studentData.email}
+                    onInput={e => handleUserChange(e)}
                   />
                 </FormGroup>
               </div>
@@ -80,12 +85,13 @@ const StudentForm = () => {
                     name="city"
                     placeholder="City"
                     type="text"
-                    value={studentData.city}
-                    onInput={handleUserChange}
+                    defaultValue={studentData.city}
+                    onInput={e => handleUserChange(e)}
                   />
                 </FormGroup>
               </div>
             </div>
+            {changes ?? <Button>Save Changes</Button>}
           </Form>
         </div>
         <div className="dci-course-box">
@@ -99,7 +105,7 @@ const StudentForm = () => {
                     id="exampleSelect"
                     name="select"
                     type="select"
-                    onInput={handleUserChange}>
+                    onInput={e => handleUserChange(e)}>
                     {studentData.courseName ? (
                       <option selected={true} disabled="disabled">
                         {studentData.courseName}
@@ -132,8 +138,8 @@ const StudentForm = () => {
                     onFocus={e => {
                       e.target.type = 'date';
                     }}
-                    value={studentData.courseEndDate}
-                    onInput={handleUserChange}
+                    defaultValue={studentData.courseEndDate}
+                    onInput={e => handleUserChange(e)}
                   />
                 </FormGroup>
               </div>

@@ -53,7 +53,7 @@ p code {
 
 .personal-details-box,
 .dci-course-box,
-.mentor-box {
+.dci-mentor-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -63,7 +63,7 @@ p code {
 
 .personal-details-title,
 .dci-course-title,
-.mentor-title {
+.dci-mentor-title {
   align-self: flex-start;
   margin: 1rem 0;
 }

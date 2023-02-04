@@ -29,31 +29,33 @@ const NavBar = () => {
           {/* <NavbarBrand className="logo" /> */}
           <NavbarToggler onClick={toggle} data-testid="navbar-toggle" />
           <Collapse isOpen={isOpen} navbar>
-            <Nav className="mr-auto" navbar data-testid="navbar-items">
+            <Nav className="w-100 d-flex justify-content-between mr-auto " navbar data-testid="navbar-items">
               <NavItem>
                 <PageLink href="/" className="nav-link" testId="navbar-home">
                   Home
                 </PageLink>
               </NavItem>
-              {user && (
-                <>
-                  <NavItem>
-                    <PageLink href="/userprofile" className="nav-link" testId="navbar-csr">
-                      Profile
-                    </PageLink>
-                  </NavItem>
-                  <NavItem>
-                    <PageLink href="/connect" className="nav-link" testId="navbar-ssr">
-                      Connect
-                    </PageLink>
-                  </NavItem>
-                  {/* <NavItem>
+              <div className="d-flex">
+                {user && (
+                  <>
+                    <NavItem>
+                      <PageLink href="/userprofile" className="nav-link" testId="navbar-csr">
+                        Profile
+                      </PageLink>
+                    </NavItem>
+                    <NavItem>
+                      <PageLink href="/connect" className="nav-link" testId="navbar-ssr">
+                        Connect
+                      </PageLink>
+                    </NavItem>
+                    {/* <NavItem>
                     <PageLink href="/external" className="nav-link" testId="navbar-external">
                       External API
                     </PageLink>
                   </NavItem> */}
-                </>
-              )}
+                  </>
+                )}
+              </div>
             </Nav>
             <Nav className="d-none d-md-block" navbar>
               {!isLoading && !user && (
