@@ -82,6 +82,7 @@ const MentorForm = () => {
 
   const submitForm = e => {
     e.preventDefault();
+    setChanges(false);
     // CRUD operations
   };
 

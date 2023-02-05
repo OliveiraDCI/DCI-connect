@@ -44,8 +44,19 @@ const StudentForm = () => {
     });
   };
 
-  const submitForm = e => {
+  const submitFormPersonal = e => {
     e.preventDefault();
+
+    setChangesPersonal(false);
+
+    // CRUD operations
+  };
+
+  const submitFormCourse = e => {
+    e.preventDefault();
+
+    setChangesCourse(false);
+
     // CRUD operations
   };
 
@@ -54,7 +65,7 @@ const StudentForm = () => {
       <div className="profile-container">
         <div className="personal-details-box">
           <h2 className="personal-details-title">Personal details</h2>
-          <Form className="student-form" onSubmit={e => submitForm(e)}>
+          <Form className="student-form" onSubmit={e => submitFormPersonal(e)}>
             <div>
               <div className="mb-3 w-100 text-center">
                 <img alt="user-image" src={studentData.picture} />
@@ -111,56 +122,56 @@ const StudentForm = () => {
             {changesPersonal && <Button className="save-changes">Save Changes</Button>}
           </Form>
         </div>
+
         <div className="dci-course-box">
           <h2 className="dci-course-title">DCI course</h2>
-          <Form className="student-form">
+          <Form className="student-form" onSubmit={e => submitFormCourse(e)}>
             <div>
-              <div>
-                <FormGroup>
-                  <Input
-                    className="course-selection"
-                    id="exampleSelect"
-                    name="courseName"
-                    type="select"
-                    onChange={e => handleCourseChange(e)}>
-                    {studentData.courseName ? (
-                      <option selected={true} disabled="disabled">
-                        {studentData.courseName}
-                      </option>
-                    ) : (
-                      <option selected={true} disabled="disabled">
-                        Graduated course
-                      </option>
-                    )}
+              <FormGroup>
+                <Input
+                  className="course-selection"
+                  id="exampleSelect"
+                  name="courseName"
+                  type="select"
+                  onChange={e => handleCourseChange(e)}>
+                  {studentData.courseName ? (
+                    <option selected={true} disabled="disabled">
+                      {studentData.courseName}
+                    </option>
+                  ) : (
+                    <option selected={true} disabled="disabled">
+                      Graduated course
+                    </option>
+                  )}
 
-                    <option>Web Development</option>
-                    <option>Python Backend Programming</option>
-                    <option>Java Backend Programming</option>
-                    <option>AWS re/Start Program</option>
-                    <option>Online Marketing</option>
-                    <option>Salesforce Consultant</option>
-                    <option>HR Consultant - People management</option>
-                    <option>Orientation Course</option>
-                    <option>Job Coaching</option>
-                  </Input>
-                </FormGroup>
-              </div>
-              <div>
-                <FormGroup>
-                  <Input
-                    id="exampleDate"
-                    name="courseEndDate"
-                    placeholder="Expected graduation date"
-                    type="text"
-                    onFocus={e => {
-                      e.target.type = 'date';
-                    }}
-                    defaultValue={studentData.courseEndDate}
-                    onChange={e => handleCourseChange(e)}
-                  />
-                </FormGroup>
-              </div>
+                  <option>Web Development</option>
+                  <option>Python Backend Programming</option>
+                  <option>Java Backend Programming</option>
+                  <option>AWS re/Start Program</option>
+                  <option>Online Marketing</option>
+                  <option>Salesforce Consultant</option>
+                  <option>HR Consultant - People management</option>
+                  <option>Orientation Course</option>
+                  <option>Job Coaching</option>
+                </Input>
+              </FormGroup>
             </div>
+            <div>
+              <FormGroup>
+                <Input
+                  id="exampleDate"
+                  name="courseEndDate"
+                  placeholder="Expected graduation date"
+                  type="text"
+                  onFocus={e => {
+                    e.target.type = 'date';
+                  }}
+                  defaultValue={studentData.courseEndDate}
+                  onChange={e => handleCourseChange(e)}
+                />
+              </FormGroup>
+            </div>
+
             {changesCourse && <Button className="save-changes">Save Changes</Button>}
           </Form>
         </div>
