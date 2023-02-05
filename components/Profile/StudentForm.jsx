@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FormGroup, Input, Label, Form } from 'reactstrap';
+import { FormGroup, Input, Label, Form, Button } from 'reactstrap';
 import MentorForm from './MentorForm';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import usersData from '../../utils/usersData';
@@ -144,7 +144,7 @@ const StudentForm = () => {
                 </FormGroup>
               </div>
             </div>
-            {changes ?? <Button>Save Changes</Button>}
+            {changes && <Button>Save Changes</Button>}
           </Form>
         </div>
         <MentorForm />

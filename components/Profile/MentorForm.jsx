@@ -34,7 +34,7 @@ const MentorForm = () => {
     { value: 'aws', label: 'AWS', color: '#FF8B00' },
     { value: 'salesforce', label: 'Salesforce', color: '#36B37E' },
     { value: 'jobCoaching', label: 'Job Coaching', color: '#00875A' },
-    { value: 'jobSearch', label: 'jobSearch', color: '#253858' },
+    { value: 'jobSearch', label: 'Job search', color: '#253858' },
     { value: 'interviewPrep', label: 'Interview preparation', color: '#666666' },
     { value: 'freelancing', label: 'Freelancing', color: '#666766' }
   ];
@@ -88,7 +88,6 @@ const MentorForm = () => {
                   />
                 </FormGroup>
               </div>
-
               <div>
                 <FormGroup>
                   <Select
@@ -101,7 +100,6 @@ const MentorForm = () => {
                   />
                 </FormGroup>
               </div>
-
               <div>
                 <FormGroup>
                   <Input
@@ -126,7 +124,6 @@ const MentorForm = () => {
                   </Input>
                 </FormGroup>
               </div>
-
               <div>
                 <FormGroup>
                   <Input
@@ -139,7 +136,6 @@ const MentorForm = () => {
                   />
                 </FormGroup>
               </div>
-
               <div>
                 <FormGroup>
                   <Input
@@ -152,7 +148,6 @@ const MentorForm = () => {
                   />
                 </FormGroup>
               </div>
-
               <div className="d-flex w-100 justify-content-around">
                 <div>
                   <FormGroup check>
@@ -188,12 +183,11 @@ const MentorForm = () => {
                 </div>
               </div>
               <CreatableSelect
-                  isMulti
-                  options={topicsOptions}
-                  placeholder="Select the topics you can help with or suggest a new one..."
-                />
-                ;
-              {changes ?? <Button>Save Changes</Button>}
+                isMulti
+                options={topicsOptions}
+                placeholder="Select the topics you can help with or suggest a new one..."
+              />
+              ;{changes && <Button>Save Changes</Button>}
             </div>
           </Form>
         )}
