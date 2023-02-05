@@ -23,7 +23,7 @@ const Search = ({ user }) => {
     <>
       <div className="connect-container">
         <div>
-          <Form onSubmit={handleSearch} className="d-flex">
+          <Form onSubmit={handleSearch} className="d-flex" id="search-bar">
             <Label for="search" hidden />
             <Input
               id="search"

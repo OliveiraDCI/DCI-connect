@@ -33,7 +33,7 @@ const StudentForm = () => {
       <div className="profile-container">
         <div className="personal-details-box">
           <h2 className="personal-details-title">Personal details</h2>
-          <Form className="form" onSubmit={e => submitForm(e)}>
+          <Form className="student-form" onSubmit={e => submitForm(e)}>
             <div>
               <div>
                 <img alt="user-image" src={studentData.picture} />
@@ -91,12 +91,12 @@ const StudentForm = () => {
                 </FormGroup>
               </div>
             </div>
-            {changes ?? <Button>Save Changes</Button>}
+            {changes ?? <Button className="save-changes">Save Changes</Button>}
           </Form>
         </div>
         <div className="dci-course-box">
           <h2 className="dci-course-title">DCI course</h2>
-          <Form>
+          <Form className="student-form">
             <div>
               <div>
                 <FormGroup>
@@ -144,7 +144,7 @@ const StudentForm = () => {
                 </FormGroup>
               </div>
             </div>
-            {changes && <Button>Save Changes</Button>}
+            {changes && <Button className="save-changes">Save Changes</Button>}
           </Form>
         </div>
         <MentorForm />

@@ -24,11 +24,11 @@ const Mentors = ({ user }) => {
 
   return (
     <>
-      <CardGroup className="card-group">
+      <div className="cards-group">
         {usersData &&
           usersData.map(mentor => {
             return (
-              <Card className="card">
+              <Card>
                 <CardImg alt="Card image cap" src="https://picsum.photos/318/180" top width="100%" />
                 <CardBody>
                   <CardTitle tag="h5" className="text-center">
@@ -76,7 +76,7 @@ const Mentors = ({ user }) => {
               </Card>
             );
           })}
-      </CardGroup>
+      </div>
     </>
   );
 };
