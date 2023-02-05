@@ -11,8 +11,8 @@ export default function SSRPage({ user }) {
 
       <div className="result-block-container" data-testid="ssr-json">
         <div className="result-block">
-          <h6 className="muted">User prop</h6>
-          <Highlight>{JSON.stringify(user, null, 2)}</Highlight>
+          {/* <h6 className="muted">User prop</h6>
+          <Highlight>{JSON.stringify(user, null, 2)}</Highlight> */}
         </div>
       </div>
     </>

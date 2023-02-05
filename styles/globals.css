@@ -113,4 +113,31 @@ p code {
   background-color: #1e90ff;
 }
 
+
+/* Connect page */
+
+.card-group{
+  gap:2em;
+}
+
+.card{
+  border-radius: 5px;
+  
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* media queries  */
