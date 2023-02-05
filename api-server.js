@@ -12,8 +12,9 @@ const port = process.env.API_PORT || 3001;
 const baseUrl = process.env.AUTH0_BASE_URL;
 const issuerBaseUrl = process.env.AUTH0_ISSUER_BASE_URL;
 const audience = process.env.AUTH0_AUDIENCE;
+const mongodbDataApiUrl = process.env.MONGODB_DATA_API_URL;
 
-if (!baseUrl || !issuerBaseUrl) {
+if (!baseUrl || !issuerBaseUrl || !mongodbDataApiUrl) {
   throw new Error('Please make sure that the file .env.local is in place and populated');
 }
 
@@ -24,7 +25,7 @@ if (!audience) {
 
 app.use(morgan('dev'));
 app.use(helmet());
-app.use(cors({ origin: baseUrl }));
+app.use(cors({ origin: [baseUrl, mongodbDataApiUrl] }));
 
 const checkJwt = jwt({
   secret: jwksRsa.expressJwtSecret({

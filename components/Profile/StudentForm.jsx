@@ -49,7 +49,21 @@ const StudentForm = () => {
 
     setChangesPersonal(false);
 
-    // CRUD operations
+    console.log('data ', studentData);
+    console.log('submitting --> ', process.env.MONGODB_DATA_API_URL);
+
+    fetch(`${process.env.MONGODB_DATA_API_URL}/action/insertOne`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Request-Headers': '*',
+        'api-key': process.env.MONGODB_DATA_API_KEY
+      },
+      body: JSON.stringify(studentData)
+    })
+      .then(response => response.json())
+      .then(data => console.log('Success:', data))
+      .catch(error => console.error('Error:', error));
   };
 
   const submitFormCourse = e => {
