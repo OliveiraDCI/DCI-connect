@@ -6,7 +6,8 @@ import usersData from '../../utils/usersData';
 
 const StudentForm = () => {
   const { user, isLoading } = useUser();
-  const [changes, setChanges] = useState(false);
+  const [changesPersonal, setChangesPersonal] = useState(false);
+  const [changesCourse, setChangesCourse] = useState(false);
 
   const [studentData, setStudentData] = useState({
     firstName: usersData[0].firstName || user.nickname || '',
@@ -19,13 +20,33 @@ const StudentForm = () => {
     iLike: usersData[0].iLike || []
   });
 
-  const handleUserChange = () => {
-    setChanges(true);
+  const handlePersonalChange = e => {
+    setChangesPersonal(true);
+
+    console.log('input name --> ', e.target.name);
+    console.log('input value --> ', e.target.value);
+
+    setStudentData({
+      ...studentData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleCourseChange = e => {
+    setChangesCourse(true);
+
+    console.log('input name --> ', e.target.name);
+    console.log('input value --> ', e.target.value);
+
+    setStudentData({
+      ...studentData,
+      [e.target.name]: e.target.value
+    });
   };
 
   const submitForm = e => {
-    console.log('submiting new values StudentForm e.target.value --> ', e.target.value);
-    // update database with new updated values
+    e.preventDefault();
+    // CRUD operations
   };
 
   return (
@@ -35,63 +56,59 @@ const StudentForm = () => {
           <h2 className="personal-details-title">Personal details</h2>
           <Form className="student-form" onSubmit={e => submitForm(e)}>
             <div>
-              <div>
+              <div className="mb-3 w-100 text-center">
                 <img alt="user-image" src={studentData.picture} />
               </div>
               <div>
                 <FormGroup>
-                  <Label for="firstName" hidden />
                   <Input
                     id="FirstName"
                     name="firstName"
                     placeholder="First name"
                     type="text"
                     defaultValue={studentData.firstName || ''}
-                    onInput={e => handleUserChange(e)}
+                    onChange={e => handlePersonalChange(e)}
                   />
                 </FormGroup>
               </div>
               <div>
                 <FormGroup>
-                  <Label for="lastName" hidden />
                   <Input
                     id="LastName"
                     name="lastName"
                     placeholder="Last name"
                     type="text"
                     defaultValue={studentData.lastName || ''}
-                    onInput={e => handleUserChange(e)}
+                    onChange={e => handlePersonalChange(e)}
                   />
                 </FormGroup>
               </div>
               <div>
                 <FormGroup>
-                  <Label for="exampleEmail" hidden />
                   <Input
                     id="exampleEmail"
                     name="email"
                     placeholder="Email"
                     type="email"
                     defaultValue={studentData.email}
-                    onInput={e => handleUserChange(e)}
+                    onChange={e => handlePersonalChange(e)}
                   />
                 </FormGroup>
               </div>
               <div>
                 <FormGroup>
-                  <Label for="city" hidden />
                   <Input
                     id="exampleCity"
                     name="city"
                     placeholder="City"
                     type="text"
                     defaultValue={studentData.city}
-                    onInput={e => handleUserChange(e)}
+                    onChange={e => handlePersonalChange(e)}
                   />
                 </FormGroup>
               </div>
             </div>
-            {changes ?? <Button className="save-changes">Save Changes</Button>}
+            {changesPersonal && <Button className="save-changes">Save Changes</Button>}
           </Form>
         </div>
         <div className="dci-course-box">
@@ -103,9 +120,9 @@ const StudentForm = () => {
                   <Input
                     className="course-selection"
                     id="exampleSelect"
-                    name="select"
+                    name="courseName"
                     type="select"
-                    onInput={e => handleUserChange(e)}>
+                    onChange={e => handleCourseChange(e)}>
                     {studentData.courseName ? (
                       <option selected={true} disabled="disabled">
                         {studentData.courseName}
@@ -132,19 +149,19 @@ const StudentForm = () => {
                 <FormGroup>
                   <Input
                     id="exampleDate"
-                    name="date"
+                    name="courseEndDate"
                     placeholder="Expected graduation date"
                     type="text"
                     onFocus={e => {
                       e.target.type = 'date';
                     }}
                     defaultValue={studentData.courseEndDate}
-                    onInput={e => handleUserChange(e)}
+                    onChange={e => handleCourseChange(e)}
                   />
                 </FormGroup>
               </div>
             </div>
-            {changes && <Button className="save-changes">Save Changes</Button>}
+            {changesCourse && <Button className="save-changes">Save Changes</Button>}
           </Form>
         </div>
         <MentorForm />
