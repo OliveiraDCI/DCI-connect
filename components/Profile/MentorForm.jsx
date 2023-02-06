@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FormGroup, Input, Label, Form, Button, Badge } from 'reactstrap';
+import { FormGroup, Input, Form, Button, Badge } from 'reactstrap';
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 import makeAnimated from 'react-select/animated';
@@ -20,9 +20,9 @@ const MentorForm = () => {
   });
 
   const languageOptions = [
-    { value: 'english', label: 'English', color: '#FF8B00' },
-    { value: 'german', label: 'German', color: '#FFC400' },
-    { value: 'other', label: 'Other', color: '#36B37E' }
+    { value: 'english', label: 'English', color: '#FF8B00', name: 'languages' },
+    { value: 'german', label: 'German', color: '#FFC400', name: 'languages' },
+    { value: 'other', label: 'Other', color: '#36B37E', name: 'languages' }
   ];
   const animatedComponents = makeAnimated();
 
@@ -45,13 +45,45 @@ const MentorForm = () => {
     { value: 'applying', label: 'Applying', color: '#FF8B00' }
   ];
 
-  const handleMentorChange = () => {
+  const handleEmploymentChange = e => {
     setChanges(true);
+
+    console.log('input employment status --> ', e.value);
+
+    setMentorData({
+      ...mentorData,
+      employment: e.value
+    });
+  };
+
+  const handleSelectChange = (selectedOption, name) => {
+    setChanges(true);
+
+    console.log('input name --> ', name);
+    console.log('input value selectedOption --> ', [...selectedOption.map(language => language.value)]);
+
+    setMentorData({
+      ...mentorData,
+      [name]: [...selectedOption.map(language => language.value)]
+    });
+  };
+
+  const handleMentorChange = e => {
+    setChanges(true);
+
+    console.log('input name --> ', e.target.name);
+    console.log('input value --> ', e.target.value);
+
+    setMentorData({
+      ...mentorData,
+      [e.target.name]: e.target.value
+    });
   };
 
   const submitForm = e => {
-    console.log('submiting new values MentorForm e.target.value --> ', e.target.value);
-    // update database with new updated values
+    e.preventDefault();
+    setChanges(false);
+    // CRUD operations
   };
 
   return (
@@ -85,62 +117,78 @@ const MentorForm = () => {
               <div>
                 <FormGroup>
                   <Input
-                    id="mentor-description"
-                    name="mentor-description"
                     placeholder="Describe yourself"
+                    id="mentor-description"
                     type="textarea"
                     defaultValue={mentorData.description || ''}
+                    name="description"
                     onChange={e => handleMentorChange(e)}
                   />
                 </FormGroup>
               </div>
+
               <div>
                 <FormGroup>
                   <Select
+                    placeholder="Pick the languages you speak..."
                     closeMenuOnSelect={false}
                     components={animatedComponents}
                     isMulti
                     options={languageOptions}
-                    placeholder="Pick the languages you speak..."
-                    onChange={e => handleMentorChange(e)}
+                    name="languages"
+                    onChange={selectedOption => handleSelectChange(selectedOption, 'languages')}
                   />
                 </FormGroup>
               </div>
+
               <div>
                 <FormGroup>
-                  <Select placeholder="Pick your employment status..." options={employmentOptions} />
+                  <Select
+                    placeholder="Pick your employment status..."
+                    options={employmentOptions}
+                    name="employment"
+                    onChange={e => handleEmploymentChange(e)}
+                  />
                 </FormGroup>
               </div>
+
               <div>
                 <FormGroup>
                   <Input
-                    id="mentor-description"
-                    name="mentor-description"
                     placeholder="Company"
+                    id="mentor-company"
                     type="text"
                     defaultValue={mentorData.company || ''}
+                    name="company"
                     onChange={e => handleMentorChange(e)}
                   />
                 </FormGroup>
               </div>
+
               <div>
                 <FormGroup>
                   <Input
-                    id="mentor-description"
-                    name="mentor-description"
+                    id="mentor-position"
                     placeholder="Position"
                     type="text"
                     defaultValue={mentorData.position || ''}
+                    name="position"
                     onChange={e => handleMentorChange(e)}
                   />
                 </FormGroup>
               </div>
-              <CreatableSelect
-                isMulti
-                options={topicsOptions}
-                closeMenuOnSelect={false}
-                placeholder="Pick the topics you can help with or suggest a new one..."
-              />
+
+              <div>
+                <CreatableSelect
+                  placeholder="Pick the topics you can help with or suggest a new one..."
+                  isMulti
+                  options={topicsOptions}
+                  closeMenuOnSelect={false}
+                  name="topics"
+                  onChange={selectedOption => handleSelectChange(selectedOption, 'topics')}
+                />
+              </div>
+
               <br />
               {changes && <Button className="save-changes">Save Changes</Button>}
             </div>
