@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -38,11 +40,40 @@ p code {
   opacity: 1;
 }
 
+:root {
+  --black: #212121;
+  --white: #FFFFFF;
+  --yellow-100: #FFECB3;
+  --yellow-200: #FFE082;
+  --yellow-300: #FEEB70;
+  --yellow-400: #FFCA28;
+  --yellow-500: #FFC107;
+  --gray-500: #9E9E9E;
+  --gray-400: #BDBDBD;
+  --gray-300: #E0E0E0;
+  --gray-200: #EEEEEE;
+  --gray-100: #F5F5F5;
+  --indigo-500: #3F51B5;
+  --indigo-400: #5C6BC0;
+  --indigo-300: #7986CB;
+  --indigo-200: #9FA8DA;
+  --indigo-100: #C5CAE9;
+
+
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--yellow-300);
+  color: var(--indigo-500);
+}
+
+
 /* Profile page */
 
 .profile-container img {
   border-radius: 50%;
-  box-shadow: #495057;
+  border: 5px solid var(--white);
 }
 
 .profile-container,
@@ -176,6 +207,12 @@ p code {
     width: 70vw;
   }
 
+  .personal-details-title,
+  .dci-course-title,
+  .dci-mentor-title {
+  align-self: center;
+}
+
   .student-form,
   .mentor-form {
     width: 100%;
@@ -198,4 +235,3 @@ p code {
   }
 
 }
-
