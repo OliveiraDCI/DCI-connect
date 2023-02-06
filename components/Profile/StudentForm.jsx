@@ -1,30 +1,46 @@
-import React, { useState } from 'react';
-import { FormGroup, Input, Label, Form, Button } from 'reactstrap';
-import MentorForm from './MentorForm';
-import { useUser } from '@auth0/nextjs-auth0/client';
-import usersData from '../../utils/usersData';
+import React, { useEffect, useState } from "react";
+import { FormGroup, Input, Form, Button } from "reactstrap";
+import MentorForm from "./MentorForm";
 
-const StudentForm = () => {
-  const { user, isLoading } = useUser();
+const StudentForm = ({ user }) => {
   const [changesPersonal, setChangesPersonal] = useState(false);
   const [changesCourse, setChangesCourse] = useState(false);
 
+  const [userData, setUserData] = useState({});
+
   const [studentData, setStudentData] = useState({
-    firstName: usersData[0].firstName || user.nickname || '',
-    lastName: usersData[0].lastName || '',
-    picture: usersData[0].picture || user.picture || '',
-    email: usersData[0].email || user.name || '',
-    city: usersData[0].city || '',
-    courseName: usersData[0].courseName || '',
-    courseEndDate: usersData[0].courseEndDate || '',
-    iLike: usersData[0].iLike || []
+    picture: userData?.picture || user.picture || "",
+    email: userData?.email || user.name || "",
+    firstName: userData?.firstName || user.nickname || "",
+    lastName: userData?.lastName || "",
+    city: userData?.city || "",
+    courseName: userData?.courseName || "",
+    courseEndDate: userData?.courseEndDate || "",
+    iLike: userData?.iLike || []
   });
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch("/api/user", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(user)
+        });
+        const data = await response.json();
+        setUserData(data);
+        console.log("userData", userData);
+      } catch (error) {
+        console.log("Error on data fetching: ", error.message);
+      }
+    }
+    fetchData();
+  }, []);
 
   const handlePersonalChange = e => {
     setChangesPersonal(true);
-
-    console.log('input name --> ', e.target.name);
-    console.log('input value --> ', e.target.value);
 
     setStudentData({
       ...studentData,
@@ -35,43 +51,44 @@ const StudentForm = () => {
   const handleCourseChange = e => {
     setChangesCourse(true);
 
-    console.log('input name --> ', e.target.name);
-    console.log('input value --> ', e.target.value);
-
     setStudentData({
       ...studentData,
       [e.target.name]: e.target.value
     });
   };
 
-  const submitFormPersonal = e => {
+  const submitFormPersonal = async e => {
     e.preventDefault();
 
     setChangesPersonal(false);
 
-    console.log('data ', studentData);
-    console.log('submitting --> ', process.env.MONGODB_DATA_API_URL);
-
-    fetch(`${process.env.MONGODB_DATA_API_URL}/action/insertOne`, {
-      method: 'POST',
+    const response = await fetch("/api/user", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Request-Headers': '*',
-        'api-key': process.env.MONGODB_DATA_API_KEY
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(studentData)
     })
       .then(response => response.json())
-      .then(data => console.log('Success:', data))
-      .catch(error => console.error('Error:', error));
+      .then(data => console.log("Success: API response data --> ", data))
+      .catch(error => console.error("Error:", error));
   };
 
-  const submitFormCourse = e => {
+  const submitFormCourse = async e => {
     e.preventDefault();
 
     setChangesCourse(false);
 
-    // CRUD operations
+    const response = await fetch("/api/user", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(studentData)
+    })
+      .then(response => response.json())
+      .then(data => console.log("Success: API response data --> ", data))
+      .catch(error => console.error("Error:", error));
   };
 
   return (
@@ -91,7 +108,7 @@ const StudentForm = () => {
                     name="firstName"
                     placeholder="First name"
                     type="text"
-                    defaultValue={studentData.firstName || ''}
+                    defaultValue={studentData.firstName || ""}
                     onChange={e => handlePersonalChange(e)}
                   />
                 </FormGroup>
@@ -103,7 +120,7 @@ const StudentForm = () => {
                     name="lastName"
                     placeholder="Last name"
                     type="text"
-                    defaultValue={studentData.lastName || ''}
+                    defaultValue={studentData.lastName || ""}
                     onChange={e => handlePersonalChange(e)}
                   />
                 </FormGroup>
@@ -178,7 +195,7 @@ const StudentForm = () => {
                   placeholder="Expected graduation date"
                   type="text"
                   onFocus={e => {
-                    e.target.type = 'date';
+                    e.target.type = "date";
                   }}
                   defaultValue={studentData.courseEndDate}
                   onChange={e => handleCourseChange(e)}

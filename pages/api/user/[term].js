@@ -1,25 +1,25 @@
-import { getAccessToken, withApiAuthRequired } from '@auth0/nextjs-auth0';
+import { getAccessToken, withApiAuthRequired } from "@auth0/nextjs-auth0";
 
 export default withApiAuthRequired(async function handler(req, res) {
   const { accessToken } = await getAccessToken(req, res);
   const fetchOptions = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Request-Headers': '*',
+      "Content-Type": "application/json",
+      "Access-Control-Request-Headers": "*",
       jwtTokenString: accessToken
     }
   };
   const fetchBody = {
     dataSource: process.env.MONGODB_DATA_SOURCE,
-    database: 'dci_connect',
-    collection: 'mentors'
+    database: "dci_connect",
+    collection: "users"
   };
   const baseUrl = `${process.env.MONGODB_DATA_API_URL}/action`;
 
   try {
     switch (req.method) {
-      case 'GET':
+      case "POST":
         const term = req.query.term;
         const readData = await fetch(`${baseUrl}/aggregate`, {
           ...fetchOptions,
@@ -28,11 +28,11 @@ export default withApiAuthRequired(async function handler(req, res) {
             pipeline: [
               {
                 $search: {
-                  index: 'default',
+                  index: "default",
                   text: {
                     query: term,
                     path: {
-                      wildcard: '*' // wildcard, but we can specify what properties we want to search.
+                      wildcard: "*" // wildcard, but we can specify what properties we want to search.
                     },
                     fuzzy: {}
                   }

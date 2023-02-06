@@ -1,30 +1,30 @@
-import { getAccessToken, withApiAuthRequired } from '@auth0/nextjs-auth0';
+import { getAccessToken, withApiAuthRequired } from "@auth0/nextjs-auth0";
 
 export default withApiAuthRequired(async function handler(req, res) {
   const { accessToken } = await getAccessToken(req, res);
   const fetchOptions = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Request-Headers': '*',
+      "Content-Type": "application/json",
+      "Access-Control-Request-Headers": "*",
       jwtTokenString: accessToken
     }
   };
   const fetchBody = {
     dataSource: process.env.MONGODB_DATA_SOURCE,
-    database: 'dci_connect',
-    collection: 'mentors'
+    database: "dci_connect",
+    collection: "users"
   };
   const baseUrl = `${process.env.MONGODB_DATA_API_URL}/action`;
 
   try {
     switch (req.method) {
-      case 'PUT':
+      case "GET":
         const updateData = await fetch(`${baseUrl}/updateOne`, {
           ...fetchOptions,
           body: JSON.stringify({
             ...fetchBody,
-            filter: { _id: { $oid: req.body._id } },
+            filter: { _id: { $oid: req.body._id } }, // determine how the mentor ID will be passed in
             update: {
               [req.body.action]: {
                 likes: req.body.userId // array with user id's that have liked this mentor

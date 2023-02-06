@@ -5,7 +5,7 @@ import CreatableSelect from 'react-select/creatable';
 import makeAnimated from 'react-select/animated';
 import usersData from '../../utils/usersData';
 
-const MentorForm = () => {
+const MentorForm = ({ user }) => {
   const [rSelected, setRSelected] = useState(false);
   const [changes, setChanges] = useState(false);
 
