@@ -1,22 +1,28 @@
-import React, { useState } from 'react';
-import { Input, Label, Form, Button } from 'reactstrap';
-import Mentors from './Mentors';
+import React, { useState } from "react";
+import { Input, Label, Form, Button } from "reactstrap";
+import Mentors from "./Mentors";
 
 const Search = ({ user }) => {
-  const [term, setInput] = useState('');
+  const [term, setInput] = useState("");
 
   const handleSearch = e => {
     e.preventDefault();
 
-    if (!term) return console.log('no value entered');
+    if (!term) return console.log("no value entered");
 
     const response = async () => {
-      console.log('fetching... term: ', term);
-      // fetch term dynamically via API endpoint /mentors/[term]
+      console.log("fetching... term: ", term);
+      const getMentors = await fetch(`/api/user/${term}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      const getMentorsJson = await getMentors.json();
+
+      console.log("getMentorsJson search results --> ", getMentorsJson);
     };
     response();
-    // const data = response.json();
-    // console.log('Term search data --> ', data);
   };
 
   return (
