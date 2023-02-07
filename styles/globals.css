@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -42,31 +42,31 @@ p code {
 
 :root {
   --black: #212121;
-  --white: #FFFFFF;
-  --yellow-100: #FFECB3;
-  --yellow-200: #FFE082;
-  --yellow-300: #FEEB70;
-  --yellow-400: #FFCA28;
-  --yellow-500: #FFC107;
-  --gray-500: #9E9E9E;
-  --gray-400: #BDBDBD;
-  --gray-300: #E0E0E0;
-  --gray-200: #EEEEEE;
-  --gray-100: #F5F5F5;
-  --indigo-500: #3F51B5;
-  --indigo-400: #5C6BC0;
-  --indigo-300: #7986CB;
-  --indigo-200: #9FA8DA;
-  --indigo-100: #C5CAE9;
-
-
+  --white: #ffffff;
+  --yellow-100: #ffecb3;
+  --yellow-200: #ffe082;
+  --yellow-300: #feeb70;
+  --yellow-400: #ffca28;
+  --yellow-500: #ffc107;
+  --gray-500: #9e9e9e;
+  --gray-400: #bdbdbd;
+  --gray-300: #e0e0e0;
+  --gray-200: #eeeeee;
+  --gray-100: #f5f5f5;
+  --indigo-500: #3f51b5;
+  --indigo-400: #5c6bc0;
+  --indigo-300: #7986cb;
+  --indigo-200: #9fa8da;
+  --indigo-100: #c5cae9;
+  --peach: #ffa580;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif !important;
   background-color: var(--yellow-300);
   color: var(--indigo-500);
 }
+
 
 
 /* Profile page */
@@ -102,11 +102,39 @@ body {
   width: 50%;
 }
 
+.form-control,
+.form-select {
+  color: var(--black);
+  outline: none;
+  border: 2px solid var(--black) !important;
+  box-shadow: 3px 4px 0px 1px var(--black);
+  padding: 12px 10px;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  outline: none !important;
+  transform: translateY(4px);
+  box-shadow: 1px 2px 0px 0px #000;
+  border: 2px solid var(--black) ;
+}
+
 .personal-details-title,
 .dci-course-title,
 .dci-mentor-title {
   align-self: flex-start;
   margin: 1rem 0;
+}
+
+.mentorship-description {
+  padding: 10px;
+  border-radius: 1px solid var(--indigo-300);
+  border-style: dotted;
+  border-radius: 10px;
+  padding: 12px 10px;
+  text-align: center;
 }
 
 .course-selection {
@@ -123,10 +151,52 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  min-width: 30%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 12px 10px;
+  border: 2px solid var(--black);
+  box-shadow: 3px 4px 0px 1px var(--black);
+  background-color: var(--indigo-300);
+  min-width: 40%;
 }
 
+.save-changes:hover {
+  background-color: var(--peach);
+}
+
+
+.become-mentor {
+  color: var(--black);
+  padding: 12px 10px;
+  background-color: var(--peach);
+  border: 2px solid var(--black);
+  box-shadow: 3px 4px 0px 1px var(--black);
+  min-width: 100%;
+}
+
+.become-mentor:hover {
+  background-color: var(--peach);
+}
+
+
 /* dropdown  */
+
+
+.select {
+  border: 2px solid var(--black);
+  box-shadow: 3px 4px 0px 1px var(--black);
+  border-radius: 4px;
+  color:black !important;
+}
+
+#react-select-21-live-region{
+  border: 2px solid var(--black) !important;
+  box-shadow: 3px 4px 0px 1px var(--black) !important;
+  border-radius: 4px !important;
+  color:black !important;
+}
+
+
 .multiselect {
   width: 200px;
 }
@@ -148,18 +218,6 @@ body {
   bottom: 0;
 }
 
-#checkboxes {
-  display: none;
-  border: 1px #dadada solid;
-}
-
-#checkboxes label {
-  display: block;
-}
-
-#checkboxes label:hover {
-  background-color: #1e90ff;
-}
 
 /* Connect page */
 
@@ -167,30 +225,34 @@ body {
   min-width: 30vw;
 }
 
+#search {
+  min-height: 3rem;
+}
+
 .cards-group {
   gap: 2em;
   display: flex;
   flex-wrap: wrap;
-  max-width: min-content;
+  /* max-width: min-content; */
 }
 
 .card {
-  flex:50%;
-  border-radius: 5px;
-  min-width: 25vw;
+  flex: 40%;
+  /* border-radius: 5px;
   border-radius: 10px;
-  border: 1px solid gray;
-
+  border: 1px solid gray; */
+  color: var(--black);
+  border: 2px solid var(--black) !important;
+  box-shadow: 3px 4px 0px 1px var(--black) !important;
+  border-radius: 4px !important;
+  background-color: var(--white);
 }
 
 .card-img-top {
   max-height: 200px;
   object-fit: cover;
-  border-radius: 10px 10px 0 0;
+  /* border-radius: 10px 10px 0 0; */
 }
-
-
-
 
 /* media queries for medium and small screens  */
 
@@ -210,8 +272,8 @@ body {
   .personal-details-title,
   .dci-course-title,
   .dci-mentor-title {
-  align-self: center;
-}
+    align-self: center;
+  }
 
   .student-form,
   .mentor-form {
@@ -225,13 +287,11 @@ body {
   }
 
   #search-bar {
-   width: 80vw;
+    width: 80vw;
   }
 
   .card {
-    border-radius: 5px;
-    min-width: 60vw;
-    max-width: 80vw;
+    align-items: center;
+    min-width: 50%;
   }
-
 }

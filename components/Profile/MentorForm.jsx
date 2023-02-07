@@ -126,21 +126,25 @@ const MentorForm = ({ user }) => {
       <h2 className="dci-mentor-title">Become a mentor</h2>
 
       <div className="mentor-form">
-        <p>
+        <p className="mentorship-description">
           {" "}
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta atque id dicta veniam commodi dolor sint ad!
           Voluptate, amet sint.
         </p>
-
-        <Button
-          color="primary"
-          outline
-          onClick={() => {
-            setRSelected(prevState => !prevState);
-          }}>
-          Become a mentor
-        </Button>
-
+        <div className="d-flex justify-content-between w-100">
+          <Button
+            className="become-mentor"
+            onClick={() => {
+              setRSelected(prevState => !prevState);
+            }}>
+            Become a mentor
+          </Button>
+          {/* <div>
+            <Badge className="px-4 py-1" color="success" pill>
+              student likes: {mentorData.likes.length || "0"}
+            </Badge>
+          </div> */}
+        </div>
         {rSelected && (
           <Form className="form py-4" onSubmit={e => submitForm(e)}>
             <div>
@@ -160,6 +164,7 @@ const MentorForm = ({ user }) => {
               <div>
                 <FormGroup>
                   <Select
+                    className="select"
                     placeholder="Pick the languages you speak..."
                     closeMenuOnSelect={false}
                     components={animatedComponents}
