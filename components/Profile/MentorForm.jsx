@@ -1,54 +1,77 @@
-import React, { useState } from 'react';
-import { FormGroup, Input, Form, Button, Badge } from 'reactstrap';
-import Select from 'react-select';
-import CreatableSelect from 'react-select/creatable';
-import makeAnimated from 'react-select/animated';
-import usersData from '../../utils/usersData';
+import React, { useState, useEffect } from "react";
+import { FormGroup, Input, Form, Button, Badge } from "reactstrap";
+import Select from "react-select";
+import CreatableSelect from "react-select/creatable";
+import makeAnimated from "react-select/animated";
+import usersData from "../../utils/usersData";
 
 const MentorForm = ({ user }) => {
   const [rSelected, setRSelected] = useState(false);
   const [changes, setChanges] = useState(false);
 
   const [mentorData, setMentorData] = useState({
-    description: usersData[0].description || '',
-    languages: usersData[0].languages || [],
-    employment: usersData[0].employment || '',
-    company: usersData[0].company || '',
-    position: usersData[0].position || '',
-    topics: usersData[0].topics || [],
-    likes: usersData[0].likes || []
+    description: "",
+    languages: [],
+    employment: "",
+    company: "",
+    position: "",
+    topics: [],
+    likes: []
   });
 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch("/api/user", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ ...user, ...mentorData })
+        });
+        const data = await response.json();
+
+        if (response.ok)
+          setMentorData(prev => {
+            return { ...prev, ...data.document };
+          });
+      } catch (error) {
+        console.log("Error on data fetching: ", error.message);
+      }
+    }
+    fetchData();
+  }, []);
+
   const languageOptions = [
-    { value: 'english', label: 'English', color: '#FF8B00', name: 'languages' },
-    { value: 'german', label: 'German', color: '#FFC400', name: 'languages' },
-    { value: 'other', label: 'Other', color: '#36B37E', name: 'languages' }
+    { value: "english", label: "English", color: "#FF8B00", name: "languages" },
+    { value: "german", label: "German", color: "#FFC400", name: "languages" },
+    { value: "other", label: "Other", color: "#36B37E", name: "languages" }
   ];
   const animatedComponents = makeAnimated();
 
   const topicsOptions = [
-    { value: 'frontEnd', label: 'Frontend development - JS, React', color: '#FF8B00' },
-    { value: 'backEnd', label: 'Backend development - MERN', color: '#FF8B00' },
-    { value: 'backEnd', label: 'Backend development - Python', color: '#FF8B00' },
-    { value: 'backEnd', label: 'Backend development - Java', color: '#FF8B00' },
-    { value: 'aws', label: 'AWS', color: '#FF8B00' },
-    { value: 'salesforce', label: 'Salesforce', color: '#36B37E' },
-    { value: 'jobCoaching', label: 'Job coaching', color: '#00875A' },
-    { value: 'jobSearch', label: 'Job search', color: '#253858' },
-    { value: 'interviewPrep', label: 'Interview preparation', color: '#666666' },
-    { value: 'freelancing', label: 'Freelancing', color: '#666766' }
+    { value: "frontEnd", label: "Frontend development - JS, React", color: "#FF8B00" },
+    { value: "backEnd", label: "Backend development - MERN", color: "#FF8B00" },
+    { value: "backEnd", label: "Backend development - Python", color: "#FF8B00" },
+    { value: "backEnd", label: "Backend development - Java", color: "#FF8B00" },
+    { value: "aws", label: "AWS", color: "#FF8B00" },
+    { value: "salesforce", label: "Salesforce", color: "#36B37E" },
+    { value: "jobCoaching", label: "Job coaching", color: "#00875A" },
+    { value: "jobSearch", label: "Job search", color: "#253858" },
+    { value: "interviewPrep", label: "Interview preparation", color: "#666666" },
+    { value: "freelancing", label: "Freelancing", color: "#666766" }
   ];
 
   const employmentOptions = [
-    { value: 'employed', label: 'Employed', color: '#FF8B00' },
-    { value: 'intern', label: 'Intern', color: '#FF8B00' },
-    { value: 'applying', label: 'Applying', color: '#FF8B00' }
+    { value: "employed", label: "Employed", color: "#FF8B00" },
+    { value: "intern", label: "Intern", color: "#FF8B00" },
+    { value: "applying", label: "Applying", color: "#FF8B00" }
   ];
 
   const handleEmploymentChange = e => {
     setChanges(true);
 
-    console.log('input employment status --> ', e.value);
+    console.log("input employment status --> ", e.value);
 
     setMentorData({
       ...mentorData,
@@ -59,8 +82,8 @@ const MentorForm = ({ user }) => {
   const handleSelectChange = (selectedOption, name) => {
     setChanges(true);
 
-    console.log('input name --> ', name);
-    console.log('input value selectedOption --> ', [...selectedOption.map(language => language.value)]);
+    console.log("input name --> ", name);
+    console.log("input value selectedOption --> ", [...selectedOption.map(language => language.value)]);
 
     setMentorData({
       ...mentorData,
@@ -71,8 +94,8 @@ const MentorForm = ({ user }) => {
   const handleMentorChange = e => {
     setChanges(true);
 
-    console.log('input name --> ', e.target.name);
-    console.log('input value --> ', e.target.value);
+    console.log("input name --> ", e.target.name);
+    console.log("input value --> ", e.target.value);
 
     setMentorData({
       ...mentorData,
@@ -80,10 +103,22 @@ const MentorForm = ({ user }) => {
     });
   };
 
-  const submitForm = e => {
+  const submitForm = async e => {
     e.preventDefault();
     setChanges(false);
-    // CRUD operations
+
+    const response = await fetch("/api/user", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ ...mentorData })
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Success: API response data --> ", data);
+      })
+      .catch(error => console.error("Error:", error));
   };
 
   return (
@@ -92,25 +127,20 @@ const MentorForm = ({ user }) => {
 
       <div className="mentor-form">
         <p>
-          {' '}
+          {" "}
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta atque id dicta veniam commodi dolor sint ad!
           Voluptate, amet sint.
         </p>
-        <div className="d-flex justify-content-between w-100">
-          <Button
-            color="primary"
-            outline
-            onClick={() => {
-              setRSelected(prevState => !prevState);
-            }}>
-            Become a mentor
-          </Button>
-          <div>
-            <Badge className="px-4 py-1" color="success" pill>
-              student likes: {mentorData.likes.length || '0'}
-            </Badge>
-          </div>
-        </div>
+
+        <Button
+          color="primary"
+          outline
+          onClick={() => {
+            setRSelected(prevState => !prevState);
+          }}>
+          Become a mentor
+        </Button>
+
         {rSelected && (
           <Form className="form py-4" onSubmit={e => submitForm(e)}>
             <div>
@@ -120,7 +150,7 @@ const MentorForm = ({ user }) => {
                     placeholder="Describe yourself"
                     id="mentor-description"
                     type="textarea"
-                    defaultValue={mentorData.description || ''}
+                    defaultValue={mentorData.description}
                     name="description"
                     onChange={e => handleMentorChange(e)}
                   />
@@ -135,8 +165,11 @@ const MentorForm = ({ user }) => {
                     components={animatedComponents}
                     isMulti
                     options={languageOptions}
+                    defaultValue={mentorData.languages.map(language => {
+                      return languageOptions.find(option => option.value === language);
+                    })}
                     name="languages"
-                    onChange={selectedOption => handleSelectChange(selectedOption, 'languages')}
+                    onChange={selectedOption => handleSelectChange(selectedOption, "languages")}
                   />
                 </FormGroup>
               </div>
@@ -146,6 +179,7 @@ const MentorForm = ({ user }) => {
                   <Select
                     placeholder="Pick your employment status..."
                     options={employmentOptions}
+                    defaultValue={() => mentorData.employment}
                     name="employment"
                     onChange={e => handleEmploymentChange(e)}
                   />
@@ -158,7 +192,7 @@ const MentorForm = ({ user }) => {
                     placeholder="Company"
                     id="mentor-company"
                     type="text"
-                    defaultValue={mentorData.company || ''}
+                    defaultValue={mentorData.company}
                     name="company"
                     onChange={e => handleMentorChange(e)}
                   />
@@ -171,7 +205,7 @@ const MentorForm = ({ user }) => {
                     id="mentor-position"
                     placeholder="Position"
                     type="text"
-                    defaultValue={mentorData.position || ''}
+                    defaultValue={mentorData.position}
                     name="position"
                     onChange={e => handleMentorChange(e)}
                   />
@@ -183,9 +217,12 @@ const MentorForm = ({ user }) => {
                   placeholder="Pick the topics you can help with or suggest a new one..."
                   isMulti
                   options={topicsOptions}
+                  defaultValue={mentorData.topics.map(topic => {
+                    return topicsOptions.find(option => option.value === topic);
+                  })}
                   closeMenuOnSelect={false}
                   name="topics"
-                  onChange={selectedOption => handleSelectChange(selectedOption, 'topics')}
+                  onChange={selectedOption => handleSelectChange(selectedOption, "topics")}
                 />
               </div>
 

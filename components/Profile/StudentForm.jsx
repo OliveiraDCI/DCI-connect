@@ -6,16 +6,15 @@ const StudentForm = ({ user }) => {
   const [changesPersonal, setChangesPersonal] = useState(false);
   const [changesCourse, setChangesCourse] = useState(false);
   const [studentData, setStudentData] = useState({
-    picture: user.picture || "",
-    email: user.name || "",
-    firstName: user.nickname || "",
+    picture: "",
+    email: "",
+    firstName: "",
     lastName: "",
     city: "",
     courseName: "",
     courseEndDate: "",
     iLike: []
   });
-  const [update, setUpdate] = useState(studentData);
 
   useEffect(() => {
     async function fetchData() {
@@ -87,7 +86,7 @@ const StudentForm = ({ user }) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(studentData)
+      body: JSON.stringify({ ...studentData })
     })
       .then(response => response.json())
       .then(data => console.log("Success: API response data --> ", data))

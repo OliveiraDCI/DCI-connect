@@ -36,7 +36,7 @@ export default withApiAuthRequired(async function handler(req, res) {
                 iLike: req.body?.iLike,
                 description: req.body?.description,
                 languages: req.body?.languages,
-                employed: req.body?.employed,
+                employment: req.body?.employment,
                 company: req.body?.company,
                 position: req.body?.position,
                 topics: req.body?.topics,
