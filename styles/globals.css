@@ -19,27 +19,6 @@ p code {
   height: 100%;
 }
 
-#nav-mobile {
-  min-height: 170px;
-}
-
-.nav-item.dropdown .dropdown-item {
-  padding: 0;
-}
-
-.nav-item.dropdown .dropdown-item a {
-  color: inherit;
-}
-
-.nav-item.dropdown .dropdown-item .navbar-item {
-  width: 100%;
-  padding: 0.55rem 1.5rem;
-}
-
-.result-block-container .result-block {
-  opacity: 1;
-}
-
 :root {
   --black: #212121;
   --white: #ffffff;
@@ -59,13 +38,85 @@ p code {
   --indigo-200: #9fa8da;
   --indigo-100: #c5cae9;
   --peach: #ffa580;
+  --peach-200: #e78761;
 }
+
 
 body {
   font-family: "Poppins", sans-serif !important;
   background-color: var(--yellow-300);
   color: var(--indigo-500);
 }
+
+
+.login-button {
+  color: var(--white);
+  padding: 10px 8px;
+  background-color: var(--indigo-400);
+  border: 2px solid var(--black);
+  min-width: 100%;
+}
+
+.login-button:hover{
+  background-color: var(--indigo-500);
+}
+
+.logout-button {
+  color: var(--black);
+  padding: 10px 8px;
+  background-color: var(--peach);
+  border: 2px solid var(--black);
+  min-width: 100%;
+}
+
+.logout-button:hover{
+  background-color: var(--peach-200);
+  text-decoration: none !important;
+}
+
+.nav-container {
+  border-bottom: 2px solid var(--black);
+}
+
+.nav-link {
+  color: var(--indigo-500) !important;
+  font-weight: 500 !important;
+  font-size: large;
+}
+
+.nav-item.dropdown .dropdown-item {
+  padding: 0;
+}
+
+.nav-item.dropdown .dropdown-item a {
+  color: inherit;
+}
+
+.nav-item.dropdown .dropdown-item .navbar-item {
+  width: 100%;
+  padding: 0.55rem 1.5rem;
+}
+
+.result-block-container .result-block {
+  opacity: 1;
+}
+
+.hero {
+  max-width: 100% !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero-text-container {
+  text-align: left;
+  width: 40%;
+}
+
+.team-image{
+  width: 40%;
+  align-items: center;
+}
+
 
 /* Profile page */
 
@@ -92,7 +143,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1em;
-  width: 53vw;
+  width: 60vw;
 }
 
 .student-form,
@@ -134,7 +185,9 @@ body {
 .dci-mentor-title {
   align-self: flex-start;
   margin: 1rem 0;
+  font-weight: 400;
 }
+
 
 .mentorship-description {
   padding: 10px;
@@ -291,6 +344,29 @@ body {
 /* media queries for medium and small screens  */
 
 @media screen and (max-width: 992px) {
+
+  body {
+    font-size: min(max(16px, 4vw), 40px);
+  }
+
+  .hero {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  
+  .hero-text-container {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .team-image{
+    width: 100%;
+    align-items: center;
+  }
+
   .personal-details-box,
   .dci-course-box,
   .dci-mentor-box {
@@ -307,6 +383,7 @@ body {
   .dci-course-title,
   .dci-mentor-title {
     align-self: center;
+    text-align: center;
   }
 
   .student-form,
@@ -319,10 +396,6 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
-
-  /* #search-bar {
-    width: 80vw;
-  } */
 
   #search {
     height: 2.5vw !important;
