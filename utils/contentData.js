@@ -16,7 +16,7 @@ const contentData = [
     image: "/CV.gif",
     title: "Give / receive technical skills support",
     description:
-      "Stuck on a coding challenge or need some help with your ReDI Course? You'll have the opportunity to give and receive support on all things coding and technical. "
+      "Stuck on a technical challenge? You'll have the opportunity to give and receive support on all things coding and technical. "
   },
   {
     image: "/CV.gif",
