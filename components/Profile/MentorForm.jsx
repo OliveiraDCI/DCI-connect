@@ -3,7 +3,6 @@ import { FormGroup, Input, Form, Button, Badge } from "reactstrap";
 import Select from "react-select";
 import CreatableSelect from "react-select/creatable";
 import makeAnimated from "react-select/animated";
-import usersData from "../../utils/usersData";
 
 const MentorForm = ({ user }) => {
   const [rSelected, setRSelected] = useState(false);
@@ -179,7 +178,6 @@ const MentorForm = ({ user }) => {
                     className="select-employment"
                     placeholder="Pick your employment status..."
                     options={employmentOptions}
-                    // defaultValue={mentorData.employment}
                     defaultValue={() => employmentOptions.find(option => option.value === mentorData.employment)}
                     name="employment"
                     onChange={e => handleEmploymentChange(e)}

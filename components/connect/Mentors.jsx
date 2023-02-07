@@ -1,34 +1,17 @@
-import { library } from '@fortawesome/fontawesome-svg-core';
-import React from 'react';
-import {
-  Card,
-  CardImg,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  CardText,
-  Badge,
-  FormGroup,
-  Input,
-  Label,
-  ListGroup,
-  ListGroupItem,
-  Button
-} from "reactstrap";
-import usersData from "../../utils/usersData";
+import React from "react";
+import { Card, CardBody, CardTitle, CardSubtitle, Badge, ListGroup, ListGroupItem, Button } from "reactstrap";
+// import usersData from "../../utils/usersData";
 import { MdLocationOn } from "react-icons/md";
-import { VscCircleFilled } from "react-icons/vsc";
 
-const Mentors = ({ user }) => {
+const Mentors = ({ mentors }) => {
   console.log("hello from mentors");
-  console.log("usersData --> ", usersData);
-  console.log("user --> ", user);
+  console.log("mentors from component --> ", mentors);
 
   return (
     <>
       <div className="cards-group">
-        {usersData &&
-          usersData.map((mentor, index) => {
+        {mentors &&
+          mentors.map((mentor, index) => {
             return (
               <Card key={index}>
                 <CardBody>
@@ -41,22 +24,22 @@ const Mentors = ({ user }) => {
                   <ListGroup flush>
                     <ListGroupItem>
                       <p>ABOUT ME</p>
-                      {mentor.description}
+                      {mentor?.description}
                     </ListGroupItem>
 
                     <ListGroupItem>
                       <p>LANGUAGES</p>
-                      {mentor.languages.map((language, index) => (
+                      {mentor?.languages?.map((language, index) => (
                         <Badge className="language-badge" key={index}>
-                          {language}
+                          {language && language}
                         </Badge>
                       ))}
                     </ListGroupItem>
                     <ListGroupItem>
                       <p>TOPICS</p>
-                      {mentor.topics.map((topic, index) => (
+                      {mentor?.topics?.map((topic, index) => (
                         <Badge className="topic-badge" key={index}>
-                          {topic}{" "}
+                          {topic && topic}{" "}
                         </Badge>
                       ))}
                     </ListGroupItem>

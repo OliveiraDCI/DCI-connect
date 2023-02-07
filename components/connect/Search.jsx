@@ -4,26 +4,26 @@ import Mentors from "./Mentors";
 
 const Search = ({ user }) => {
   const [term, setInput] = useState("");
+  const [mentorsSearchResult, setMentorsSearchResult] = useState([]);
 
-  const handleSearch = e => {
+  const handleSearch = async e => {
     e.preventDefault();
 
     if (!term) return console.log("no value entered");
 
-    const response = async () => {
-      console.log("fetching... term: ", term);
-      const getMentors = await fetch(`/api/user/${term}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-      const getMentorsJson = await getMentors.json();
+    const response = await fetch(`api/user/${term}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
 
-      console.log("getMentorsJson search results --> ", getMentorsJson);
-    };
-    response();
+    const data = await response.json();
+
+    console.log("Term search results: ", data);
+    setMentorsSearchResult(data);
   };
+  console.log("Mentors search results: ", mentorsSearchResult);
 
   return (
     <>
@@ -47,7 +47,7 @@ const Search = ({ user }) => {
           </Form>
         </div>
         <div>
-          <Mentors user={user} />
+          <Mentors mentors={mentorsSearchResult} />
         </div>
       </div>
     </>
