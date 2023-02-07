@@ -29,14 +29,14 @@ const StudentForm = ({ user }) => {
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(user)
+          body: JSON.stringify({ ...studentData })
         });
         const data = await response.json();
 
-        // setUserData(data);
+        setUserData(data);
 
-        console.log("user --> ", user);
-        console.log("data useEffect on end --> ", data);
+        console.log("studentData --> ", studentData);
+        console.log("data on useEffect  --> ", data);
       } catch (error) {
         console.log("Error on data fetching: ", error.message);
       }

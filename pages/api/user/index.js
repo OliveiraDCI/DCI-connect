@@ -7,10 +7,11 @@ export default withApiAuthRequired(async function handler(req, res) {
 
     const baseUrl = `${process.env.MONGODB_DATA_API_URL}/action`;
 
+    console.log("request body --> ", req.body);
     switch (req.method) {
       case "POST":
         await new Promise(resolve => setTimeout(resolve, 2000));
-        const readData = await fetch(`${baseUrl}/findOne`, {
+        const readData = await fetch(`${baseUrl}/updateOne`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -21,70 +22,61 @@ export default withApiAuthRequired(async function handler(req, res) {
             dataSource: process.env.MONGODB_DATA_SOURCE,
             database: "dci_connect",
             collection: "users",
-            filter: { _id: user.id }
+            filter: { email: user.name }, // 'name' is the 'email' in Auth0 user object
+            update: {
+              $set: {
+                firstName: req.body?.firstName,
+                lastName: req.body?.lastName,
+                picture: req.body?.picture,
+                email: req.body?.email,
+                city: req.body?.city,
+                courseName: req.body?.courseName,
+                courseEndDate: req.body?.courseEndDate,
+                iLike: req.body?.iLike,
+                description: req.body?.description,
+                languages: req.body?.languages,
+                employed: req.body?.employed,
+                company: req.body?.company,
+                position: req.body?.position,
+                topics: req.body?.topics,
+                likes: req.body?.likes
+              }
+            },
+            upsert: true
           })
         });
 
         const readDataJson = await readData.json();
-        console.log("POST findOne readDataJson.document --> ", readDataJson.document);
 
-        if (!readDataJson.document.email) {
-          await fetch(`${baseUrl}/updateOne`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Request-Headers": "*",
-              jwtTokenString: accessToken
-            },
-            body: JSON.stringify({
-              dataSource: process.env.MONGODB_DATA_SOURCE,
-              database: "dci_connect",
-              collection: "users",
-              filter: { _id: { $oid: readDataJson.document._id } },
-              update: {
-                $set: {
-                  email: user.name,
-                  username: user.nickname,
-                  picture: user.picture
-                }
-              }
-            })
-          });
-          readDataJson.document = {
-            ...readDataJson.document,
-            email: user.email,
-            username: user.username,
-            picture: user.picture
-          };
-        }
+        if (readDataJson) console.log("readDataJson --> ", readDataJson);
 
-        res.status(200).json(readDataJson.document);
+        res.status(200).json(readDataJson);
         break;
 
-      case "PUT":
-        const updateData = await fetch(`${baseUrl}/updateOne`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Request-Headers": "*",
-            jwtTokenString: accessToken
-          },
-          body: JSON.stringify({
-            dataSource: process.env.MONGODB_DATA_SOURCE,
-            database: "dci_connect",
-            collection: "users",
-            filter: { _id: { $oid: req.body._id } },
-            update: {
-              $set: {
-                username: req.body.username,
-                picture: req.body.picture
-              }
-            }
-          })
-        });
-        const updateDataJson = await updateData.json();
-        res.status(200).json(updateDataJson);
-        break;
+      // case "PUT":
+      //   const updateData = await fetch(`${baseUrl}/updateOne`, {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       "Access-Control-Request-Headers": "*",
+      //       jwtTokenString: accessToken
+      //     },
+      //     body: JSON.stringify({
+      //       dataSource: process.env.MONGODB_DATA_SOURCE,
+      //       database: "dci_connect",
+      //       collection: "users",
+      //       filter: { _id: { $oid: req.body._id } },
+      //       update: {
+      //         $set: {
+      //           username: req.body.username,
+      //           picture: req.body.picture
+      //         }
+      //       }
+      //     })
+      //   });
+      //   const updateDataJson = await updateData.json();
+      //   res.status(200).json(updateDataJson);
+      //   break;
 
       default: // Method Not Allowed
         res.status(405).end();
