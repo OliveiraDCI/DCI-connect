@@ -8,6 +8,7 @@ export default withApiAuthRequired(async function handler(req, res) {
     const baseUrl = `${process.env.MONGODB_DATA_API_URL}/action`;
 
     console.log("request body --> ", req.body);
+
     switch (req.method) {
       case "POST":
         await new Promise(resolve => setTimeout(resolve, 2000));
@@ -53,30 +54,27 @@ export default withApiAuthRequired(async function handler(req, res) {
         res.status(200).json(readDataJson);
         break;
 
-      // case "PUT":
-      //   const updateData = await fetch(`${baseUrl}/updateOne`, {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //       "Access-Control-Request-Headers": "*",
-      //       jwtTokenString: accessToken
-      //     },
-      //     body: JSON.stringify({
-      //       dataSource: process.env.MONGODB_DATA_SOURCE,
-      //       database: "dci_connect",
-      //       collection: "users",
-      //       filter: { _id: { $oid: req.body._id } },
-      //       update: {
-      //         $set: {
-      //           username: req.body.username,
-      //           picture: req.body.picture
-      //         }
-      //       }
-      //     })
-      //   });
-      //   const updateDataJson = await updateData.json();
-      //   res.status(200).json(updateDataJson);
-      //   break;
+      case "PUT":
+        const updateData = await fetch(`${baseUrl}/findOne`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Request-Headers": "*",
+            jwtTokenString: accessToken
+          },
+          body: JSON.stringify({
+            dataSource: process.env.MONGODB_DATA_SOURCE,
+            database: "dci_connect",
+            collection: "users",
+            filter: { email: user.name } // 'name' is the 'email' in Auth0 user object
+          })
+        });
+        const updateDataJson = await updateData.json();
+
+        console.log("findOne on PUt request --> ", updateDataJson);
+
+        res.status(200).json(updateDataJson);
+        break;
 
       default: // Method Not Allowed
         res.status(405).end();

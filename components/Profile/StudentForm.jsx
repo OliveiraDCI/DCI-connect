@@ -5,27 +5,23 @@ import MentorForm from "./MentorForm";
 const StudentForm = ({ user }) => {
   const [changesPersonal, setChangesPersonal] = useState(false);
   const [changesCourse, setChangesCourse] = useState(false);
-
-  const [userData, setUserData] = useState({});
-
   const [studentData, setStudentData] = useState({
-    picture: userData?.picture || user.picture || "",
-    email: userData?.email || user.name || "",
-    firstName: userData?.firstName || user.nickname || "",
-    lastName: userData?.lastName || "",
-    city: userData?.city || "",
-    courseName: userData?.courseName || "",
-    courseEndDate: userData?.courseEndDate || "",
-    iLike: userData?.iLike || []
+    picture: user.picture || "",
+    email: user.name || "",
+    firstName: user.nickname || "",
+    lastName: "",
+    city: "",
+    courseName: "",
+    courseEndDate: "",
+    iLike: []
   });
+  const [update, setUpdate] = useState(studentData);
 
   useEffect(() => {
-    console.log("studentData useEffect on start --> ", studentData);
-
     async function fetchData() {
       try {
         const response = await fetch("/api/user", {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json"
           },
@@ -33,10 +29,10 @@ const StudentForm = ({ user }) => {
         });
         const data = await response.json();
 
-        setUserData(data);
-
-        console.log("studentData --> ", studentData);
-        console.log("data on useEffect  --> ", data);
+        if (response.ok)
+          setStudentData(prev => {
+            return { ...prev, ...data.document };
+          });
       } catch (error) {
         console.log("Error on data fetching: ", error.message);
       }
@@ -72,10 +68,12 @@ const StudentForm = ({ user }) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(studentData)
+      body: JSON.stringify({ ...studentData })
     })
       .then(response => response.json())
-      .then(data => console.log("Success: API response data --> ", data))
+      .then(data => {
+        console.log("Success: API response data --> ", data);
+      })
       .catch(error => console.error("Error:", error));
   };
 
