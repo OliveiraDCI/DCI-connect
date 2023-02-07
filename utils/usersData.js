@@ -2,7 +2,7 @@ const usersData = [
   {
     _id: "63e0dc732d4e0836278eb94e",
     firstName: "Alina",
-    lastName: "inCodeland",
+    lastName: "in Codeland",
     picture: "",
     email: "email@test.com",
     city: "Berlin",
@@ -12,7 +12,7 @@ const usersData = [
     description: "I'm a recent graduate student looking to help others on the same journey, by becoming their mentor.",
     languages: ["German", "English", "Other"],
     employment: "Applying",
-    company: "Amazon",
+    company: "SAP",
     position: "Developer",
     topics: ["JavaScript", "Back-End", "Others"],
     likes: ["id1", "id2", "id3"]
@@ -54,7 +54,7 @@ const usersData = [
   },
   {
     firstName: "Bruno",
-    lastName: "inServerland",
+    lastName: "in Serverland",
     picture: "",
     email: "bruno@test.com",
     city: "Berlin",
