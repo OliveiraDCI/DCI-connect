@@ -118,7 +118,7 @@ const MentorForm = ({ user }) => {
       .then(data => {
         console.log("Success: API response data --> ", data);
       })
-      .catch(error => console.error("Error:", error));
+      .catch(error => console.error("Error: ", error.message));
   };
 
   return (
@@ -179,7 +179,8 @@ const MentorForm = ({ user }) => {
                     className="select-employment"
                     placeholder="Pick your employment status..."
                     options={employmentOptions}
-                    defaultValue={() => mentorData.employment}
+                    // defaultValue={mentorData.employment}
+                    defaultValue={() => employmentOptions.find(option => option.value === mentorData.employment)}
                     name="employment"
                     onChange={e => handleEmploymentChange(e)}
                   />

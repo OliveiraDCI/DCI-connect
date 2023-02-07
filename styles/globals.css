@@ -67,8 +67,6 @@ body {
   color: var(--indigo-500);
 }
 
-
-
 /* Profile page */
 
 .profile-container img {
@@ -103,8 +101,7 @@ body {
 }
 
 .form-control,
-.form-select,
-.search-button {
+.form-select {
   color: var(--black);
   outline: none;
   border: 2px solid var(--black) !important;
@@ -114,7 +111,7 @@ body {
   font-size: 15px;
 }
 
-.select-topics, 
+.select-topics,
 .select-employment {
   color: var(--black);
   outline: none;
@@ -124,14 +121,12 @@ body {
   font-size: 15px;
 }
 
-
-
 .form-control:focus,
 .form-select:focus {
   outline: none !important;
   transform: translateY(4px);
   box-shadow: 1px 2px 0px 0px #000;
-  border: 2px solid var(--black) ;
+  border: 2px solid var(--black);
 }
 
 .personal-details-title,
@@ -177,7 +172,6 @@ body {
   background-color: var(--peach);
 }
 
-
 .become-mentor,
 .email-button {
   color: var(--black);
@@ -193,24 +187,21 @@ body {
   background-color: var(--peach);
 }
 
-
 /* dropdown  */
-
 
 .select {
   border: 2px solid var(--black);
   box-shadow: 3px 4px 0px 1px var(--black);
   border-radius: 4px;
-  color:black !important;
+  color: black !important;
 }
 
-#react-select-21-live-region{
+#react-select-21-live-region {
   border: 2px solid var(--black) !important;
   box-shadow: 3px 4px 0px 1px var(--black) !important;
   border-radius: 4px !important;
-  color:black !important;
+  color: black !important;
 }
-
 
 .multiselect {
   width: 200px;
@@ -233,7 +224,6 @@ body {
   bottom: 0;
 }
 
-
 /* Connect page */
 
 #search-bar {
@@ -245,12 +235,17 @@ body {
 }
 
 .search-button {
-  margin-left: 1rem;
-  height: 2.5vw !important;
-  padding: 12px 10px !important;
   margin: auto;
   background-color: var(--indigo-400);
-  color: var(--white)
+  color: var(--white);
+  height: 2.5vw !important;
+  line-height: 0;
+  outline: none;
+  border: 2px solid var(--black) !important;
+  box-shadow: 3px 4px 0px 1px var(--black);
+  padding: 12px 10px;
+  border-radius: 4px;
+  font-size: 15px;
 }
 
 .cards-group {
@@ -268,7 +263,6 @@ body {
   background-color: var(--white);
 }
 
-
 .card-title {
   color: var(--black) !important;
   font-weight: 500 !important;
@@ -278,7 +272,7 @@ body {
   /* color: var(--gray-500) !important; */
 }
 
-.language-badge, 
+.language-badge,
 .topic-badge {
   background-color: transparent !important;
   border: 2px solid var(--peach) !important;
@@ -287,13 +281,12 @@ body {
   font-weight: 400 !important;
 }
 
-.email-button { 
- display: block;
- margin-left: auto;
- margin-right: auto;
+.email-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   min-width: 70% !important;
 }
-
 
 /* media queries for medium and small screens  */
 
@@ -333,10 +326,6 @@ body {
 
   #search {
     height: 2.5vw !important;
-  }
-
-  .search-button {
- 
   }
 
   .card {
