@@ -20,6 +20,8 @@ const StudentForm = ({ user }) => {
   });
 
   useEffect(() => {
+    console.log("studentData useEffect on start --> ", studentData);
+
     async function fetchData() {
       try {
         const response = await fetch("/api/user", {
@@ -30,8 +32,11 @@ const StudentForm = ({ user }) => {
           body: JSON.stringify(user)
         });
         const data = await response.json();
-        setUserData(data);
-        console.log("userData", userData);
+
+        // setUserData(data);
+
+        console.log("user --> ", user);
+        console.log("data useEffect on end --> ", data);
       } catch (error) {
         console.log("Error on data fetching: ", error.message);
       }

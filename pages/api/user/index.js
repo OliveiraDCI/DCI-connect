@@ -20,12 +20,13 @@ export default withApiAuthRequired(async function handler(req, res) {
           body: JSON.stringify({
             dataSource: process.env.MONGODB_DATA_SOURCE,
             database: "dci_connect",
-            collection: "users"
+            collection: "users",
+            filter: { _id: user.id }
           })
         });
 
         const readDataJson = await readData.json();
-        // console.log(readDataJson)
+        console.log("POST findOne readDataJson.document --> ", readDataJson.document);
 
         if (!readDataJson.document.email) {
           await fetch(`${baseUrl}/updateOne`, {
@@ -42,8 +43,8 @@ export default withApiAuthRequired(async function handler(req, res) {
               filter: { _id: { $oid: readDataJson.document._id } },
               update: {
                 $set: {
-                  email: user.email,
-                  username: user.username,
+                  email: user.name,
+                  username: user.nickname,
                   picture: user.picture
                 }
               }
@@ -91,6 +92,6 @@ export default withApiAuthRequired(async function handler(req, res) {
     }
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error });
+    res.status(500).json({ error: error.message });
   }
 });
