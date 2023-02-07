@@ -41,7 +41,9 @@ const Search = ({ user }) => {
               aria-label="Search"
               onInput={e => setInput(e.target.value)}
             />
-            <Button className="search-button">search</Button>
+            <Button className="search-button" id="search-button">
+              search
+            </Button>
           </Form>
         </div>
         <div>
