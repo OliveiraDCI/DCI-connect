@@ -1,7 +1,6 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import React from 'react';
 import {
-  CardGroup,
   Card,
   CardImg,
   CardBody,
@@ -32,7 +31,6 @@ const Mentors = ({ user }) => {
           usersData.map((mentor, index) => {
             return (
               <Card key={index}>
-                {/* <CardImg alt="Card image cap" src="https://picsum.photos/318/180" top width="100%" /> */}
                 <CardBody>
                   <CardTitle tag="h5" className="text-center">
                     {mentor.firstName + " " + mentor.lastName}
@@ -63,15 +61,9 @@ const Mentors = ({ user }) => {
                       ))}
                     </ListGroupItem>
                     <ListGroupItem>
-                      <div className="d-flex justify-content-between">
-                        <a href="mailto:email@email.de?subject=Howdy mentor!" className="w-100 mt-2">
-                          <Button className="email-button">EMAIL ME</Button>
-                        </a>
-                        {/* <FormGroup check inline>
-                          <Input type="checkbox" />
-                          <Label check>Like</Label>
-                        </FormGroup> */}
-                      </div>
+                      <a href="mailto:email@email.de?subject=Howdy mentor!" className="w-100 mt-2">
+                        <Button className="email-button">EMAIL ME</Button>
+                      </a>
                     </ListGroupItem>
                   </ListGroup>
                 </CardBody>

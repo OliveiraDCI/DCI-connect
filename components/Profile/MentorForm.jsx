@@ -131,20 +131,14 @@ const MentorForm = ({ user }) => {
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta atque id dicta veniam commodi dolor sint ad!
           Voluptate, amet sint.
         </p>
-        <div className="d-flex justify-content-between w-100">
-          <Button
-            className="become-mentor"
-            onClick={() => {
-              setRSelected(prevState => !prevState);
-            }}>
-            Become a mentor
-          </Button>
-          {/* <div>
-            <Badge className="px-4 py-1" color="success" pill>
-              student likes: {mentorData.likes.length || "0"}
-            </Badge>
-          </div> */}
-        </div>
+        <Button
+          className="become-mentor"
+          onClick={() => {
+            setRSelected(prevState => !prevState);
+          }}>
+          Become a mentor
+        </Button>
+
         {rSelected && (
           <Form className="form py-4" onSubmit={e => submitForm(e)}>
             <div>
@@ -182,6 +176,7 @@ const MentorForm = ({ user }) => {
               <div>
                 <FormGroup>
                   <Select
+                    className="select-employment"
                     placeholder="Pick your employment status..."
                     options={employmentOptions}
                     defaultValue={() => mentorData.employment}
@@ -219,6 +214,7 @@ const MentorForm = ({ user }) => {
 
               <div>
                 <CreatableSelect
+                  className="select-topics"
                   placeholder="Pick the topics you can help with or suggest a new one..."
                   isMulti
                   options={topicsOptions}
