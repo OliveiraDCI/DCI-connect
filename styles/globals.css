@@ -103,7 +103,8 @@ body {
 }
 
 .form-control,
-.form-select {
+.form-select,
+.search-button {
   color: var(--black);
   outline: none;
   border: 2px solid var(--black) !important;
@@ -112,6 +113,18 @@ body {
   border-radius: 4px;
   font-size: 15px;
 }
+
+.select-topics, 
+.select-employment {
+  color: var(--black);
+  outline: none;
+  border: 2px solid var(--black) !important;
+  box-shadow: 3px 4px 0px 1px var(--black);
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+
 
 .form-control:focus,
 .form-select:focus {
@@ -228,33 +241,33 @@ body {
 }
 
 #search {
-  min-height: 3rem;
+  height: 2.5vw !important;
+}
+
+.search-button {
+  margin-left: 1rem;
+  height: 2.5vw !important;
+  padding: 12px 10px !important;
+  margin: auto;
+  background-color: var(--indigo-400);
+  color: var(--white)
 }
 
 .cards-group {
   gap: 2em;
   display: flex;
   flex-wrap: wrap;
-  /* max-width: min-content; */
 }
 
 .card {
   flex: 40%;
-  /* border-radius: 5px;
-  border-radius: 10px;
-  border: 1px solid gray; */
   color: var(--black);
   border: 2px solid var(--black) !important;
-  box-shadow: 3px 4px 0px 1px var(--black) !important;
-  border-radius: 4px !important;
+  box-shadow: 5px 6px 0px 1px var(--black) !important;
+  border-radius: 2px !important;
   background-color: var(--white);
 }
 
-.card-img-top {
-  max-height: 200px;
-  object-fit: cover;
-  /* border-radius: 10px 10px 0 0; */
-}
 
 .card-title {
   color: var(--black) !important;
@@ -314,8 +327,16 @@ body {
     margin-right: auto;
   }
 
-  #search-bar {
+  /* #search-bar {
     width: 80vw;
+  } */
+
+  #search {
+    height: 2.5vw !important;
+  }
+
+  .search-button {
+ 
   }
 
   .card {
