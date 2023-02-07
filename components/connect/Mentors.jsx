@@ -13,62 +13,64 @@ import {
   Input,
   Label,
   ListGroup,
-  ListGroupItem
-} from 'reactstrap';
-import usersData from '../../utils/usersData';
+  ListGroupItem,
+  Button
+} from "reactstrap";
+import usersData from "../../utils/usersData";
+import { MdLocationOn } from "react-icons/md";
+import { VscCircleFilled } from "react-icons/vsc";
 
 const Mentors = ({ user }) => {
-  console.log('hello from mentors');
-  console.log('usersData --> ', usersData);
-  console.log('user --> ', user);
+  console.log("hello from mentors");
+  console.log("usersData --> ", usersData);
+  console.log("user --> ", user);
 
   return (
     <>
       <div className="cards-group">
         {usersData &&
-          usersData.map(mentor => {
+          usersData.map((mentor, index) => {
             return (
-              <Card>
-                <CardImg alt="Card image cap" src="https://picsum.photos/318/180" top width="100%" />
+              <Card key={index}>
+                {/* <CardImg alt="Card image cap" src="https://picsum.photos/318/180" top width="100%" /> */}
                 <CardBody>
                   <CardTitle tag="h5" className="text-center">
-                    {mentor.firstName + ' ' + mentor.lastName}
+                    {mentor.firstName + " " + mentor.lastName}
                   </CardTitle>
                   <CardSubtitle className="mb-2 text-muted text-center" tag="h6">
-                    {mentor.city} {mentor.position && ' - ' + mentor.position}
+                    <MdLocationOn /> {mentor.city} {mentor.position && " - " + mentor.position + " @ " + mentor.company}
                   </CardSubtitle>
                   <ListGroup flush>
                     <ListGroupItem>
-                      <p>About me:</p>
+                      <p>ABOUT ME</p>
                       {mentor.description}
                     </ListGroupItem>
 
                     <ListGroupItem>
-                      <p>Languages:</p>
-                      {mentor.languages.map(language => (
-                        <Badge color="info" className="p-2">
-                          {' ' + language + ' '}
+                      <p>LANGUAGES</p>
+                      {mentor.languages.map((language, index) => (
+                        <Badge className="language-badge" key={index}>
+                          {language}
                         </Badge>
                       ))}
                     </ListGroupItem>
                     <ListGroupItem>
-                      {' '}
-                      <p>Topics:</p>
-                      {mentor.topics.map(topic => (
-                        <Badge color="info" className="p-2">
-                          {' ' + topic + ' '}{' '}
+                      <p>TOPICS</p>
+                      {mentor.topics.map((topic, index) => (
+                        <Badge className="topic-badge" key={index}>
+                          {topic}{" "}
                         </Badge>
                       ))}
                     </ListGroupItem>
                     <ListGroupItem>
-                      <div className="w-100 d-flex justify-content-between">
-                        <Badge color="success" className="p-2 ">
-                          Email me
-                        </Badge>
-                        <FormGroup check inline>
+                      <div className="d-flex justify-content-between">
+                        <a href="mailto:email@email.de?subject=Howdy mentor!" className="w-100 mt-2">
+                          <Button className="email-button">EMAIL ME</Button>
+                        </a>
+                        {/* <FormGroup check inline>
                           <Input type="checkbox" />
                           <Label check>Like</Label>
-                        </FormGroup>
+                        </FormGroup> */}
                       </div>
                     </ListGroupItem>
                   </ListGroup>

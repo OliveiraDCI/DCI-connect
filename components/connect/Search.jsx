@@ -32,6 +32,7 @@ const Search = ({ user }) => {
           <Form onSubmit={handleSearch} className="d-flex" id="search-bar">
             <Label for="search" hidden />
             <Input
+              className="search-input"
               id="search"
               name="search"
               defaultValue={term}
@@ -40,7 +41,7 @@ const Search = ({ user }) => {
               aria-label="Search"
               onInput={e => setInput(e.target.value)}
             />
-            <Button color="info">search</Button>
+            <Button className="search-button">search</Button>
           </Form>
         </div>
         <div>
