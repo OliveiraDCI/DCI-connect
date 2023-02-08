@@ -1,18 +1,24 @@
 import React from 'react';
-
-import Logo from './Logo';
+import Image from "next/image";
+import team from "../public/team.gif";
 
 const Hero = () => (
-  <div className="hero my-5 text-center" data-testid="hero">
-    <Logo testId="hero-logo" />
-    <h1 className="mb-4" data-testid="hero-title">
-      Next.js Sample Project
-    </h1>
-
-    <p className="lead" data-testid="hero-lead">
-      This is a sample application that demonstrates an authentication flow for a Regular Web App, using{' '}
-      <a href="https://nextjs.org">Next.js</a>
-    </p>
+  <div className="hero mt-5 text-center d-flex" data-testid="hero">
+    <div className="hero-text-container">
+      <h1 className="hero-title" data-testid="hero-title">
+        WELCOME TO
+      </h1>
+      <h1 className="hero-title mb-5" data-testid="hero-title">
+        DCI CONNECT
+      </h1>
+      <p className="lead" data-testid="hero-lead">
+        Our platform is all about bringing current DCI students and alumni together for some seriously awesome
+        mentorship opportunities.
+      </p>
+    </div>
+    <div className="team-image">
+      <Image src={team} alt="team" />
+    </div>
   </div>
 );
 

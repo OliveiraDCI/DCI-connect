@@ -32,11 +32,11 @@ const Mentors = ({ user }) => {
             return (
               <Card key={index}>
                 <CardBody>
-                  <CardTitle tag="h5" className="text-center">
+                  <CardTitle tag="h4" className="text-center mt-2 mb-3">
                     {mentor.firstName + " " + mentor.lastName}
                   </CardTitle>
-                  <CardSubtitle className="mb-2 text-muted text-center" tag="h6">
-                    <MdLocationOn /> {mentor.city} {mentor.position && " - " + mentor.position + " @ " + mentor.company}
+                  <CardSubtitle className="mb-2 text-muted text-center mb-3" tag="h6">
+                    {mentor.position && mentor.position + " @ " + mentor.company + " - "} <MdLocationOn /> {mentor.city}
                   </CardSubtitle>
                   <ListGroup flush>
                     <ListGroupItem>
@@ -61,8 +61,8 @@ const Mentors = ({ user }) => {
                       ))}
                     </ListGroupItem>
                     <ListGroupItem>
-                      <a href="mailto:email@email.de?subject=Howdy mentor!" className="w-100 mt-2">
-                        <Button className="email-button">EMAIL ME</Button>
+                      <a href="mailto:email@email.de?subject=Howdy mentor!">
+                        <Button className="email-button mt-2">EMAIL ME</Button>
                       </a>
                     </ListGroupItem>
                   </ListGroup>

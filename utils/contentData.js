@@ -1,27 +1,28 @@
+import CV from "../public/CV.gif";
+
 const contentData = [
   {
-    title: 'Configure Other Identity Providers',
-    link: 'https://auth0.com/docs/identityproviders',
-    description:
-      'Auth0 supports social providers as Facebook, Twitter, Instagram and 100+, Enterprise providers as Microsoft Office 365, Google Apps, Azure, and more. You can also use any OAuth2 Authorization Server.'
+    image: "/CV.gif",
+    title: "Mentorship matchmaking",
+    description: "Connect with the right mentor or mentee based on the DCI course you graduated."
   },
   {
-    title: 'Enable Multifactor Authentication',
-    link: 'https://auth0.com/docs/mfa',
+    image: "/CV.gif",
+    title: "Give / receive career advice",
     description:
-      'Add an extra layer of security by enabling Multi-factor Authentication, requiring your users to provide more than one piece of identifying information. Push notifications, authenticator apps, SMS, and DUO Security are supported.'
+      "Need some career or personal guidance? Our mentorship program is here to help you give and receive the support you need."
   },
   {
-    title: 'Attack Protection',
-    link: 'https://auth0.com/docs/attack-protection',
+    image: "/CV.gif",
+    title: "Give / receive technical skills support",
     description:
-      'Auth0 can detect anomalies and stop malicious attempts to access your application. Attack protection can alert you and your users of suspicious activity, as well as block further login attempts.'
+      "Stuck on a technical challenge? You'll have the opportunity to give and receive support on all things coding and technical. "
   },
   {
-    title: 'Learn About Rules',
-    link: 'https://auth0.com/docs/rules',
+    image: "/CV.gif",
+    title: "Build your network",
     description:
-      "Rules are JavaScript functions that execute when a user authenticates to your application. They run once the authentication process is complete, and you can use them to customize and extend Auth0's capabilities."
+      "Ready to expand your professional and personal network? You'll have the chance to connect with a diverse group of individuals who are just as passionate as you are. "
   }
 ];
 
