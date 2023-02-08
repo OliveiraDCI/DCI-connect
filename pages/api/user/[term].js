@@ -32,25 +32,26 @@ export default withApiAuthRequired(async function handler(req, res) {
                   text: {
                     query: term,
                     path: {
-                      wildcard: "*" // wildcard, but we can specify what properties we want to search.
+                      wildcard: "*" // search all properties from all documents in this collection.
                     },
                     fuzzy: {}
                   }
                 }
-              },
-              { $sort: { postedAt: -1 } }
+              }
             ]
           })
         });
         const readDataJson = await readData.json();
+
         res.status(200).json(readDataJson.documents);
         break;
+
       default:
         res.status(405).end();
         break;
     }
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error });
+    res.status(500).json({ error: error.message });
   }
 });
