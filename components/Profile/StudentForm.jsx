@@ -100,9 +100,6 @@ const StudentForm = ({ user }) => {
           <h2 className="personal-details-title">Personal details</h2>
           <Form className="student-form" onSubmit={e => submitFormPersonal(e)}>
             <div>
-              <div className="mb-3 w-100 text-center">
-                <img alt="user-image" src={studentData.picture} />
-              </div>
               <div>
                 <FormGroup>
                   <Input
@@ -208,6 +205,7 @@ const StudentForm = ({ user }) => {
             {changesCourse && <Button className="save-changes">Save Changes</Button>}
           </Form>
         </div>
+        <hr />
         <MentorForm />
       </div>
     </>
