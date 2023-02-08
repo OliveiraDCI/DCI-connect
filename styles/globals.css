@@ -105,6 +105,7 @@ body {
   justify-content: space-between;
 }
 
+
 .hero-text-container {
   text-align: left;
 }
@@ -115,9 +116,10 @@ body {
 
 /* Profile page */
 
-.profile-container img {
-  border-radius: 50%;
-  border: 5px solid var(--white);
+.profile-container hr {
+  border: 1px solid var(--indigo-300);
+  opacity: 0.5;
+  width: 100%;
 }
 
 .profile-container,
@@ -336,9 +338,46 @@ body {
   min-width: 70% !important;
 }
 
+/* Footer */
+
+.site-footer {
+  min-height: fit-content !important;
+  padding: 15px 0 20px;
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--gray-500);
+}
+
+.site-footer h6 {
+  text-align: left;
+  color: var(--indigo-400);
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+.site-footer a {
+  color: var(--gray-500) !important;
+}
+.site-footer a:hover {
+  color: #3366cc !important;
+  text-decoration: none;
+}
+.footer-links {
+  padding-left: 0;
+  list-style: none;
+}
+
+.footer-links a:active,
+.footer-links a:focus,
+.footer-links a:hover {
+  color: #3366cc;
+  text-decoration: none;
+}
+
+
 /* media queries for medium and small screens  */
 
-@media screen and (max-width: 992px) {
+@media (max-width: 991px) {
   body {
     font-size: min(max(16px, 4vw), 40px);
   }
@@ -397,5 +436,9 @@ body {
   .card {
     align-items: center;
     min-width: 50%;
+  }
+
+  .hero-text-container {
+    text-align: center;
   }
 }

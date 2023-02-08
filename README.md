@@ -1,118 +1,101 @@
-# Auth0 Next.js SDK Sample Application
+# DCI Connect 
+//  short intro about the project 
+- end of module project for Backend 
+- wtf is DCI 
+- 2 students at DCI 
+- build the tool for the school 
 
-Hi!
+//  Screenshot or video 
 
-This sample demonstrates the integration of [Auth0 Next.js SDK](https://github.com/auth0/nextjs-auth0) into a Next.js application created using [create-next-app](https://nextjs.org/docs/api-reference/create-next-app). The sample is a companion to the [Auth0 Next.js SDK Quickstart](https://auth0.com/docs/quickstart/webapp/nextjs).
+</br> 
 
-This sample demonstrates the following use cases:
+---
 
-- [Login](https://github.com/auth0-samples/auth0-nextjs-samples/blob/main/Sample-01/components/NavBar.jsx#L61-L67)
-- [Logout](https://github.com/auth0-samples/auth0-nextjs-samples/blob/main/Sample-01/components/NavBar.jsx#L93-L95)
-- [Showing the user profile](https://github.com/auth0-samples/auth0-nextjs-samples/blob/main/Sample-01/pages/profile.jsx)
-- [Protecting client-side rendered pages](https://github.com/auth0-samples/auth0-nextjs-samples/blob/main/Sample-01/pages/profile.jsx#L43-L46)
-- [Calling APIs](https://github.com/auth0-samples/auth0-nextjs-samples/blob/main/Sample-01/pages/external.jsx)
+## Description 
 
-## Project setup
 
-Use `npm` to install the project dependencies:
 
-```bash
-npm install
-```
+- Real world impact 
+    - how it generates value to DCI 
+- Development approach 
+- Time frame 
 
-## Configuration
+</br> 
 
-### Create an API
+--- 
 
-For the **External API** page to work, you will need to [create an API](https://auth0.com/docs/authorization/apis) using the [management dashboard](https://manage.auth0.com/#/apis). This will give you an API Identifier that you can use in the `AUTH0_AUDIENCE` environment variable below. Then you will need to [add a permission](https://auth0.com/docs/get-started/dashboard/add-api-permissions) named `read:shows` to your API. To get your app to ask for that permission, include it in the value of the `AUTH0_SCOPE` environment variable.
+## Tech stack
 
-If you do not wish to use an API or observe the API call working, you should not specify the `AUTH0_AUDIENCE` and `AUTH0_SCOPE` values in the next steps.
+Next.js:
 
-### Configure credentials
+- Automatically generates server-side rendering for improved performance and SEO
+- Faster page load times through dynamic code splitting
+- Built-in routing system with centralized management
 
-The project needs to be configured with your Auth0 Domain, Client ID and Client Secret for the authentication flow to work.
+Auth0:
 
-To do this, first copy `.env.local.example` into a new file in the same folder called `.env.local`, and replace the values with your own Auth0 application credentials (see more info about [loading environmental variables in Next.js](https://nextjs.org/docs/basic-features/environment-variables)):
+- Streamlines user authentication and authorization processes
+- Improved security through passwordless login, multi-factor authentication, and secure password storage
+- Protects against common security threats through built-in validation and sanitization
+- Easily integrates with multiple platforms and applications
 
-```sh
-# A long secret value used to encrypt the session cookie
-AUTH0_SECRET='LONG_RANDOM_VALUE'
-# The base url of your application
-AUTH0_BASE_URL='http://localhost:3000'
-# The url of your Auth0 tenant domain
-AUTH0_ISSUER_BASE_URL='https://YOUR_AUTH0_DOMAIN.auth0.com'
-# Your Auth0 application's Client ID
-AUTH0_CLIENT_ID='YOUR_AUTH0_CLIENT_ID'
-# Your Auth0 application's Client Secret
-AUTH0_CLIENT_SECRET='YOUR_AUTH0_CLIENT_SECRET'
-# Your Auth0 API's Identifier 
-# OMIT if you do not want to use the API part of the sample
-AUTH0_AUDIENCE='YOUR_AUTH0_API_IDENTIFIER'
-# The permissions your app is asking for
-# OMIT if you do not want to use the API part of the sample
-AUTH0_SCOPE='openid profile email read:shows'
-```
+MongoDB:
 
-**Note**: Make sure you replace `AUTH0_SECRET` with your own secret (you can generate a suitable string using `openssl rand -hex 32` on the command line).
+- Simple document-based data model for easy data manipulation and management
+- Improved security with built-in user management and data encryption
+- Automated protection against common security threats
+- Custom API creation through Atlas Data API with improved data management and control
 
-## Run the sample
+Styles:
+- CSS3
+- Reactstrap
+- React-select
 
-### Compile and hot-reload for development
+</br> 
 
-This compiles and serves the Next.js app and starts the API server on port 3001.
+---
 
-```bash
-npm run dev
-```
+## Features 
 
-## Deployment
+- User can create and update their student profile
+- User can upgrade to mentor status after course completion
+- User can search for alumni mentors by various criteria (e.g. location, technology, industry) in a user-friendly interface
+ 
+ //add screenshots
 
-### Compiles and minifies for production
+</br> 
 
-```bash
-npm run build
-```
+---
 
-### Docker build
+## Further to-dos 
 
-To build and run the Docker image, run `exec.sh`, or `exec.ps1` on Windows.
+- Implement accessibility
+- Implement further testing
+- Implement new features:
+    - Restrict registration to DCI students only, based on their student email account
+    - Allow students to become mentors only after DCI course completion 
+- Deploy live
+      
+</br> 
 
-### Run the unit tests
+--- 
 
-```bash
-npm run test
-```
+## Contributors 
 
-### Run the integration tests
+- [@alinaincodeland](https://github.com/alinaincodeland)
+- [@OliveiraDCI](https://github.com/OliveiraDCI)
 
-```bash
-npm run test:integration
-```
+</br> 
 
-## What is Auth0?
+--- 
 
-Auth0 helps you to:
+## Credits 
 
-* Add authentication with [multiple sources](https://auth0.com/docs/identityproviders), either social identity providers such as **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce** (amongst others), or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS, or any SAML Identity Provider**.
-* Add authentication through more traditional **[username/password databases](https://auth0.com/docs/connections/database/custom-db)**.
-* Add support for **[linking different user accounts](https://auth0.com/docs/users/user-account-linking)** with the same user.
-* Support for generating signed [JSON Web Tokens](https://auth0.com/docs/tokens/json-web-tokens) to call your APIs and **flow the user identity** securely.
-* Analytics of how, when, and where users are logging in.
-* Pull data from other sources and add it to the user profile through [JavaScript rules](https://auth0.com/docs/rules).
+### Illustrations 
+- <a href="https://icons8.com/illustrations/author/56v7RIkExgol">Anna Żołnierowicz</a> from <a href="https://icons8.com/illustrations">Ouch!</a>
+- <a href="https://icons8.com/illustrations/author/259416">Marina Green</a> from <a href="https://icons8.com/illustrations">Ouch!</a>
+- <a href="https://icons8.com/illustrations/author/iAdLsFJOKDrk">Tanya Krasutska</a> from <a href="https://icons8.com/illustrations">Ouch!</a>
 
-## Create a Free Auth0 Account
+</br> 
 
-1. Go to [Auth0](https://auth0.com) and click **Sign Up**.
-2. Use Google, GitHub, or Microsoft Account to login.
-
-## Issue Reporting
-
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/responsible-disclosure-policy) details the procedure for disclosing security issues.
-
-## Author
-
-[Auth0](https://auth0.com)
-
-## License
-
-This project is licensed under the MIT license. See the [LICENSE](./LICENSE) file for more info.
+--- 
