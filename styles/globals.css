@@ -41,13 +41,11 @@ p code {
   --peach-200: #e78761;
 }
 
-
 body {
   font-family: "Poppins", sans-serif !important;
   background-color: var(--yellow-300);
   color: var(--indigo-500);
 }
-
 
 .login-button {
   color: var(--white);
@@ -57,7 +55,7 @@ body {
   min-width: 100%;
 }
 
-.login-button:hover{
+.login-button:hover {
   background-color: var(--indigo-500);
 }
 
@@ -69,7 +67,7 @@ body {
   min-width: 100%;
 }
 
-.logout-button:hover{
+.logout-button:hover {
   background-color: var(--peach-200);
   text-decoration: none !important;
 }
@@ -109,14 +107,11 @@ body {
 
 .hero-text-container {
   text-align: left;
-  width: 40%;
 }
 
-.team-image{
-  width: 40%;
+.team-image {
   align-items: center;
 }
-
 
 /* Profile page */
 
@@ -188,7 +183,6 @@ body {
   margin: 1rem 0;
   font-weight: 400;
 }
-
 
 .mentorship-description {
   padding: 10px;
@@ -345,7 +339,6 @@ body {
 /* media queries for medium and small screens  */
 
 @media screen and (max-width: 992px) {
-
   body {
     font-size: min(max(16px, 4vw), 40px);
   }
@@ -357,13 +350,12 @@ body {
     text-align: center;
   }
 
-  
   .hero-text-container {
     text-align: center;
     width: 100%;
   }
-  
-  .team-image{
+
+  .team-image {
     width: 100%;
     align-items: center;
   }
