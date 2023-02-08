@@ -13,7 +13,7 @@ const Content = () => (
         <Col key={i} md={5} className="m-0">
           <h6 className="m-0">
             <div className="team-image">
-              <Image src={col.image} alt="team" width={150} height={180} />
+              <Image src={col.image} alt="team" width={col.width} height={180} />
             </div>
             <div className="col-title"> {col.title}</div>
           </h6>
