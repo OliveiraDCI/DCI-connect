@@ -42,23 +42,23 @@ const MentorForm = ({ user }) => {
   }, []);
 
   const languageOptions = [
-    { value: "english", label: "English", color: "#FF8B00", name: "languages" },
-    { value: "german", label: "German", color: "#FFC400", name: "languages" },
-    { value: "other", label: "Other", color: "#36B37E", name: "languages" }
+    { value: "English", label: "English", color: "#FF8B00", name: "languages" },
+    { value: "German", label: "German", color: "#FFC400", name: "languages" },
+    { value: "Other", label: "Other", color: "#36B37E", name: "languages" }
   ];
   const animatedComponents = makeAnimated();
 
   const topicsOptions = [
-    { value: "frontEnd", label: "Frontend development - JS, React", color: "#FF8B00" },
-    { value: "backEnd", label: "Backend development - MERN", color: "#FF8B00" },
-    { value: "backEnd", label: "Backend development - Python", color: "#FF8B00" },
-    { value: "backEnd", label: "Backend development - Java", color: "#FF8B00" },
-    { value: "aws", label: "AWS", color: "#FF8B00" },
-    { value: "salesforce", label: "Salesforce", color: "#36B37E" },
-    { value: "jobCoaching", label: "Job coaching", color: "#00875A" },
-    { value: "jobSearch", label: "Job search", color: "#253858" },
-    { value: "interviewPrep", label: "Interview preparation", color: "#666666" },
-    { value: "freelancing", label: "Freelancing", color: "#666766" }
+    { value: "Frontend development - JS, React", label: "Frontend development - JS, React", color: "#FF8B00" },
+    { value: "Backend development - MERN", label: "Backend development - MERN", color: "#FF8B00" },
+    { value: "Backend development - Python", label: "Backend development - Python", color: "#FF8B00" },
+    { value: "Backend development - Java", label: "Backend development - Java", color: "#FF8B00" },
+    { value: "AWS", label: "AWS", color: "#FF8B00" },
+    { value: "Salesforce", label: "Salesforce", color: "#36B37E" },
+    { value: "Job coaching", label: "Job coaching", color: "#00875A" },
+    { value: "Job search", label: "Job search", color: "#253858" },
+    { value: "Interview preparation", label: "Interview preparation", color: "#666666" },
+    { value: "Freelancing", label: "Freelancing", color: "#666766" }
   ];
 
   const employmentOptions = [
