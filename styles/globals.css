@@ -76,11 +76,6 @@ body {
   border-bottom: 2px solid var(--black);
 }
 
-.nav-dci {
-  width: 90%;
-  margin: 0 auto;
-}
-
 .nav-link {
   color: var(--indigo-500) !important;
   font-weight: 500 !important;
@@ -111,20 +106,21 @@ body {
 .hero {
   max-width: 100% !important;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 3rem;
-  margin-bottom: 6rem;
+  margin-bottom: 4em;
 }
 
 .hero-title {
   width: 100%;
-  text-align: center;
   font-size: min(max(1.8rem, 8vw), 2.3rem);
+  text-align: left;
 }
 
 .hero-para {
-  font-size: min(max(1.2rem, 4vw), 1.6rem);
-  text-align: justify;
+  font-size: min(max(1.2rem, 4vw), 1.5rem);
+  text-align: left;
 }
 
 /* Profile page */
@@ -389,26 +385,25 @@ body {
 }
 
 @media (max-width: 1200px) {
-  .nav-dci {
-    width: 100%;
-  }
-
   .hero {
     width: 100%;
     display: flex;
     flex-direction: column;
+  }
+
+  .hero-title {
     text-align: center;
   }
 
   .hero-para {
     font-size: min(max(1rem, 6vw), 1.6rem);
+    text-align: center;
   }
 
   .hero-text-container {
     text-align: center;
     width: 100%;
   }
-
 
   .personal-details-box,
   .dci-course-box,
@@ -451,16 +446,22 @@ body {
 }
 
 @media (max-width: 768px) {
+  .hero {
+    margin: 0;
+  }
+
   .content-items-sm {
     text-align: center;
     max-width: 80vw;
     padding: 0;
   }
 
+  .content-items-sm:not(:last-child) {
+    margin-bottom: 2em;
+  }
 
-  .team-image >img {
+  .team-image > img {
     width: 200px;
     height: 150px;
-    margin: 0;
   }
 }
