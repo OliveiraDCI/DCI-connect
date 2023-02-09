@@ -76,6 +76,11 @@ body {
   border-bottom: 2px solid var(--black);
 }
 
+.nav-dci {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .nav-link {
   color: var(--indigo-500) !important;
   font-weight: 500 !important;
@@ -99,19 +104,25 @@ body {
   opacity: 1;
 }
 
+.hero-text-container {
+  width: 60%;
+}
+
 .hero {
   max-width: 100% !important;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
-
-.hero-text-container {
-  text-align: left;
+.hero-title {
+  width: 100%;
+  text-align: center;
+  font-size: min(max(1.8rem, 8vw), 2.6rem);
 }
 
-.team-image {
-  align-items: center;
+.hero-para {
+  font-size: min(max(1.2rem, 4vw), 1.8rem);
+  text-align: justify;
 }
 
 /* Profile page */
@@ -318,10 +329,6 @@ body {
   font-weight: 500 !important;
 }
 
-.card-subtitle {
-  /* color: var(--gray-500) !important; */
-}
-
 .language-badge,
 .topic-badge {
   background-color: transparent !important;
@@ -374,12 +381,14 @@ body {
   text-decoration: none;
 }
 
+.credits {
+  text-shadow: -1px -1px 15px var(--indigo-400);
+  opacity: 0.8;
+}
 
-/* media queries for medium and small screens  */
-
-@media (max-width: 991px) {
-  body {
-    font-size: min(max(16px, 4vw), 40px);
+@media (max-width: 1200px) {
+  .nav-dci {
+    width: 100%;
   }
 
   .hero {
@@ -387,6 +396,10 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
+  }
+
+  .hero-para {
+    font-size: min(max(1rem, 6vw), 1.6rem);
   }
 
   .hero-text-container {
@@ -437,8 +450,12 @@ body {
     align-items: center;
     min-width: 50%;
   }
+}
 
-  .hero-text-container {
+@media (max-width: 768px) {
+  .content-items-sm {
     text-align: center;
+    max-width: 80vw;
+    padding: 0;
   }
 }
