@@ -105,23 +105,25 @@ body {
 }
 
 .hero-text-container {
-  width: 60%;
+  width: 50%;
 }
 
 .hero {
   max-width: 100% !important;
   display: flex;
   justify-content: space-around;
+  margin-top: 3rem;
+  margin-bottom: 6rem;
 }
 
 .hero-title {
   width: 100%;
   text-align: center;
-  font-size: min(max(1.8rem, 8vw), 2.6rem);
+  font-size: min(max(1.8rem, 8vw), 2.3rem);
 }
 
 .hero-para {
-  font-size: min(max(1.2rem, 4vw), 1.8rem);
+  font-size: min(max(1.2rem, 4vw), 1.6rem);
   text-align: justify;
 }
 
@@ -407,10 +409,6 @@ body {
     width: 100%;
   }
 
-  .team-image {
-    width: 100%;
-    align-items: center;
-  }
 
   .personal-details-box,
   .dci-course-box,
@@ -457,5 +455,12 @@ body {
     text-align: center;
     max-width: 80vw;
     padding: 0;
+  }
+
+
+  .team-image >img {
+    width: 200px;
+    height: 150px;
+    margin: 0;
   }
 }

@@ -126,9 +126,8 @@ const MentorForm = ({ user }) => {
 
       <div className="mentor-form">
         <p className="mentorship-description">
-          {" "}
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta atque id dicta veniam commodi dolor sint ad!
-          Voluptate, amet sint.
+          Are you ready to support DCI students in their transition into the digital industry? Become an Alumni mentor,
+          and make yourself available to help someone going through the same journey as you once did!
         </p>
         <Button
           className="become-mentor"

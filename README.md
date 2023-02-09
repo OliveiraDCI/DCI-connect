@@ -2,11 +2,7 @@
 
 Welcome to our back-end end-of-module project, built in just 9 days during our Web Development course at DCI Digital Career Institute.
 
-DCI is an awesome educational institution, and we are very grateful for the experience of studying there. During our year-log course, Alina put her soft-skills to action and reached out to DCI alumni on LinkedIn to get some advice and feedback about their study journey and path to land that new job. The feedback was very positive, and she had the idea - why not use our skills and create a tool for DCI to connect diferent student generations, and create a stronger community engagement and further suppport current students on achieving their goals?
-
-- wtf is DCI
-- 2 students at DCI
-- build the tool for the school
+DCI is a great educational institution, and we are honored to have had the opportunity to study there. During the course of our year-long program, Alina reached out to DCI alumni on LinkedIn to gather advice and insights about their educational journey and career path. The response was overwhelmingly positive, leading her to an "aha!" moment - why not develop a tool for connecting different DCI student generations, thus providing additional support in reaching their goals? 
 
 // Screenshot or video
 
@@ -16,10 +12,14 @@ DCI is an awesome educational institution, and we are very grateful for the expe
 
 ## Description
 
-- Real world impact
-  - how it generates value to DCI
-- Development approach
-- Time frame
+### Real-world impact
+
+DCI Connect is a valuable resource for DCI students, providing them with the ability to seek guidance and make informed decisions that will shape their future. Alumni, who have undergone the same experience and are now established in the market, have a deep understanding of student needs and are able to offer information and advice on what to expect during the study journey, the best ways to prepare for job applications, and the firsthand experience of securing their desired job. Moreover, the platform also creates value for DCI as an institution by introducing a new feature that the Career Success team can incorporate into their program strategy.
+
+
+### Development approach 
+
+We are committed to staying up-to-date with the latest technologies and development practices. By using modern tools such as Next.js and Auth0, we were able to develop a web application that is fast, secure, and scalable. The use of MongoDB Atlas App Services allowed us to validate and sanitize our data, ensuring that the information in our database is accurate and secure.
 
 </br>
 
