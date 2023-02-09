@@ -3,7 +3,8 @@ const contentData = [
     width: "200",
     image: "/matchmaking.gif",
     title: "Mentorship matchmaking",
-    description: "Connect with the right mentor based on your specific needs."
+    description:
+      "Connect with the right mentor based on your specific needs. As a mentor, get to meet some pretty cool people going through the same journey as you once did!"
   },
   {
     width: "180",
