@@ -4,9 +4,9 @@ Welcome to our back-end end-of-module project, built in just 9 days during our W
 
 DCI is a great educational institution, and we are honored to have had the opportunity to study there. During the course of our year-long program, Alina reached out to DCI alumni on LinkedIn to gather advice and insights about their educational journey and career path. The response was overwhelmingly positive, leading her to an "aha!" moment - why not develop a tool for connecting different DCI student generations, thus providing additional support in reaching their goals? 
 
-// Screenshot or video
-
 </br>
+
+![Screenshot from 2023-02-09 13-27-40](https://user-images.githubusercontent.com/95931865/217813376-5df92354-6169-46cb-9172-a0b28e7b9aa7.png)
 
 ---
 
@@ -60,10 +60,18 @@ Styles:
 ## Features
 
 - User can create and update their student profile
+
+![Screenshot from 2023-02-09 13-28-59](https://user-images.githubusercontent.com/95931865/217813462-902d30e4-2190-4bc0-8b84-35fd9403efbc.png)
+
+
 - User can upgrade to mentor status after course completion
+
+![Screenshot from 2023-02-09 13-29-18](https://user-images.githubusercontent.com/95931865/217813504-f19b6c3d-fdc6-459f-9f1c-df1bb8b91860.png)
+
+
 - User can search for alumni mentors by various criteria (e.g. location, technology, industry) in a user-friendly interface
 
-//add screenshots
+![image (2)](https://user-images.githubusercontent.com/95931865/217813708-1ecffc26-3475-4a6a-9a90-559dadcbf7e9.png)
 
 </br>
 
