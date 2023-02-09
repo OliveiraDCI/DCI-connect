@@ -15,7 +15,7 @@ const NavBar = () => {
       <Navbar color="light" light expand="md">
         <Container>
           <NavbarToggler onClick={toggle} data-testid="navbar-toggle" />
-          <Collapse className="nav-dci" isOpen={isOpen} navbar>
+          <Collapse isOpen={isOpen} navbar>
             <Nav className="w-100 d-flex justify-content-start mr-auto " navbar data-testid="navbar-items">
               <NavItem>
                 <PageLink href="/" className="nav-link" testId="navbar-home">
