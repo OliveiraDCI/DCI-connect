@@ -1,19 +1,6 @@
-import React, { useState } from 'react';
-import {
-  Collapse,
-  Container,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
-} from 'reactstrap';
+import React, { useState } from "react";
+import { Collapse, Container, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 import { useUser } from "@auth0/nextjs-auth0/client";
-import Image from "next/image";
 
 import PageLink from "./PageLink";
 import AnchorLink from "./AnchorLink";
@@ -27,10 +14,8 @@ const NavBar = () => {
     <div className="nav-container" data-testid="navbar">
       <Navbar color="light" light expand="md">
         <Container>
-          {/* <Image src={"/DCI.png"} alt="Picture of the author" width="150" height="150" /> */}
-          {/* <NavbarBrand className="logo" /> */}
           <NavbarToggler onClick={toggle} data-testid="navbar-toggle" />
-          <Collapse isOpen={isOpen} navbar>
+          <Collapse className="nav-dci" isOpen={isOpen} navbar>
             <Nav className="w-100 d-flex justify-content-start mr-auto " navbar data-testid="navbar-items">
               <NavItem>
                 <PageLink href="/" className="nav-link" testId="navbar-home">
